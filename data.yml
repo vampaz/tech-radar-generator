@@ -1,0 +1,27 @@
+- name: Java
+  quadrant: Bottom Right
+  ring: INNER
+  isNew: true
+  description: |
+    This is a cool description
+
+- name: Java
+  quadrant: Bottom Left
+  ring: OUTER
+  isNew: true
+  description: |
+    This is a cool description
+
+- name: Java
+  quadrant: Top Right
+  ring: GOOD
+  isNew: true
+  description: |
+    This is a cool description
+
+- name: Java
+  quadrant: Top Left
+  ring: BAD
+  isNew: true
+  description: |
+    This is a cool description

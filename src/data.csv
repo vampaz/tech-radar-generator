@@ -1,5 +1,0 @@
-name,ring,quadrant,isNew,description
-Java,INNER,Bottom Right,true,This is a cool description
-Typescript,SECOND,Top Left,false,This one is not as good
-Java,INNER,Bottom Left,true,This is a cool description
-Typescript,SECOND,Top Right,false,This one is not as good

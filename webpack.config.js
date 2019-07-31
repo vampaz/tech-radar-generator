@@ -95,8 +95,8 @@ module.exports = {
         loader: 'file-loader?name=images/[name].[ext]'
       },
       {
-        test: /\.csv$/,
-        loader: 'raw-loader'
+        test: /\.yml$/,
+        loader: path.resolve('./loaders/radar-yaml-loader.js')
       },
       {
         test: /\.(png|jpg|ico)$/,

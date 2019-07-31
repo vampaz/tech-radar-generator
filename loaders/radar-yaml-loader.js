@@ -11,7 +11,7 @@ function yamlLoader (source) {
 
 function toCsv (jsonData) {
   const csvData = jsonData.map(obj =>
-    [obj.name, obj.ring, obj.quadrant, obj.isNew, obj.description].join(',')
+    [obj.name, obj.ring, obj.quadrant, obj.isNew, `'${obj.description.trim()}'`].join(',')
   ).join('\n').trim()
   return `module.exports = \`${csvData}\``
 }
