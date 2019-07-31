@@ -41,8 +41,7 @@ let plugins = [
     filename: 'error.html'
   }),
   new webpack.DefinePlugin({
-    'process.env.CLIENT_ID': JSON.stringify(process.env.CLIENT_ID),
-    'process.env.API_KEY': JSON.stringify(process.env.API_KEY)
+    'process.env.RADAR_NAME': JSON.stringify(process.env.RADAR_NAME),
   })
 ]
 
@@ -94,6 +93,10 @@ module.exports = {
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader?name=images/[name].[ext]'
+      },
+      {
+        test: /\.csv$/,
+        loader: 'raw-loader'
       },
       {
         test: /\.(png|jpg|ico)$/,
