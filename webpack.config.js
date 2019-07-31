@@ -41,7 +41,7 @@ let plugins = [
     filename: 'error.html'
   }),
   new webpack.DefinePlugin({
-    'process.env.RADAR_NAME': JSON.stringify(process.env.RADAR_NAME),
+    'process.env.RADAR_NAME': JSON.stringify(process.env.RADAR_NAME)
   })
 ]
 

@@ -23,7 +23,7 @@ const Sheet = require('./sheet')
 const ExceptionMessages = require('./exceptionMessages')
 const GoogleAuth = require('./googleAuth')
 
-const inputData = require('../data.csv').default;
+const inputData = require('../data.csv').default
 
 const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   if (title.endsWith('.csv')) {
@@ -157,7 +157,7 @@ const CSVDocument = function () {
   var self = {}
 
   self.build = function () {
-    createBlips(d3.csvParse(inputData));
+    createBlips(d3.csvParse('name,ring,quadrant,isNew,description\n'.concat(inputData)))
   }
 
   var createBlips = function (data) {
@@ -175,16 +175,10 @@ const CSVDocument = function () {
   }
 
   self.init = function () {
-    return self;
+    return self
   }
 
   return self
-}
-
-const DomainName = function (url) {
-  var search = /.+:\/\/([^\\/]+)/
-  var match = search.exec(decodeURIComponent(url.replace(/\+/g, ' ')))
-  return match == null ? null : match[1]
 }
 
 const FileName = function (url) {
@@ -226,7 +220,6 @@ function plotLoading (content) {
 
   var bannerText = '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
   plotBanner(content, bannerText)
-  plotFooter(content)
 }
 
 function plotLogo (content) {
@@ -235,47 +228,10 @@ function plotLogo (content) {
     .html('<a href="https://www.thoughtworks.com"><img src="/images/tw-logo.png" / ></a>')
 }
 
-function plotFooter (content) {
-  content
-    .append('div')
-    .attr('id', 'footer')
-    .append('div')
-    .attr('class', 'footer-content')
-    .append('p')
-    .html('Powered by <a href="https://www.thoughtworks.com"> ThoughtWorks</a>. ' +
-      'By using this service you agree to <a href="https://www.thoughtworks.com/radar/tos">ThoughtWorks\' terms of use</a>. ' +
-      'You also agree to our <a href="https://www.thoughtworks.com/privacy-policy">privacy policy</a>, which describes how we will gather, use and protect any personal data contained in your public Google Sheet. ' +
-      'This software is <a href="https://github.com/thoughtworks/build-your-own-radar">open source</a> and available for download and self-hosting.')
-}
-
 function plotBanner (content, text) {
   content.append('div')
     .attr('class', 'input-sheet__banner')
     .html(text)
-}
-
-function plotForm (content) {
-  content.append('div')
-    .attr('class', 'input-sheet__form')
-    .append('p')
-    .html('<strong>Enter the URL of your <a href="https://www.thoughtworks.com/radar/how-to-byor" target="_blank">Google Sheet or CSV</a> file below…</strong>')
-
-  var form = content.select('.input-sheet__form').append('form')
-    .attr('method', 'get')
-
-  form.append('input')
-    .attr('type', 'text')
-    .attr('name', 'sheetId')
-    .attr('placeholder', 'e.g. https://docs.google.com/spreadsheets/d/<sheetid> or hosted CSV file')
-    .attr('required', '')
-
-  form.append('button')
-    .attr('type', 'submit')
-    .append('a')
-    .attr('class', 'button')
-    .text('Build my radar')
-
-  form.append('p').html("<a href='https://www.thoughtworks.com/radar/how-to-byor'>Need help?</a>")
 }
 
 function plotErrorMessage (exception) {
@@ -318,8 +274,6 @@ function plotErrorMessage (exception) {
 
   errorContainer.append('div').append('p')
     .html(homePage)
-
-  plotFooter(content)
 }
 
 function plotUnauthorizedErrorMessage () {
