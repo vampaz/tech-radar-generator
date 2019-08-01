@@ -9,15 +9,9 @@ function yamlLoader (source) {
   }
 };
 
-function toCsv (jsonData) {
-  const csvData = jsonData.map(obj =>
-    [obj.name, obj.ring, obj.quadrant, obj.isNew, `'${obj.description.trim()}'`].join(',')
-  ).join('\n').trim()
-  return `module.exports = \`${csvData}\``
-}
-
 module.exports = function (source) {
-  const jsonData = yamlLoader(source)
+  const rawData = yamlLoader(source)
   // TODO map fields, clean fields
-  return toCsv(jsonData)
+  const jsonData = rawData.map(obj => ({ ...obj, isNew: obj.isNew + '', description: obj.description.trim() }))
+  return `module.exports = ${JSON.stringify(jsonData)}`
 }

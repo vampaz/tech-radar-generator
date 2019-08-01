@@ -33,16 +33,16 @@ function createCompiler (fixture, options = {}) {
   })
 }
 
-describe('radar-yaml-loader', () => {
+fdescribe('radar-yaml-loader', () => {
   ['example-simple'].forEach((fixture) => {
     it(`transforms ${fixture}`, async () => {
       const stats = await createCompiler(`./${fixture}.yml`)
       const output = stats.toJson().modules[0].source
 
-      const outputCsv = fs.readFileSync(
-        path.join(__dirname, `${fixture}.csv`), 'utf8'
-      ).trim()
-      expect(output).toBe(`module.exports = \`${outputCsv}\``)
+      const outputJson = JSON.parse(fs.readFileSync(
+        path.join(__dirname, `${fixture}.json`), 'utf8'
+      ))
+      expect(output).toBe(`module.exports = ${JSON.stringify(outputJson)}`)
     })
   })
 })

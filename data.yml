@@ -7,15 +7,15 @@
 
 - name: Java
   quadrant: Bottom Left
-  ring: OUTER
+  ring: INNER
   isNew: true
   description: |
     This is a cool description
 
-- name: Java
+- name: Javaadiaosdoasd
   quadrant: Top Right
   ring: GOOD
-  isNew: true
+  isNew: false
   description: |
     This is a cool description
 

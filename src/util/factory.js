@@ -1,7 +1,6 @@
 /* eslint no-constant-condition: "off" */
 
 const d3 = require('d3')
-const Tabletop = require('tabletop')
 const _ = {
   map: require('lodash/map'),
   uniqBy: require('lodash/uniqBy'),
@@ -15,15 +14,17 @@ const Quadrant = require('../models/quadrant')
 const Ring = require('../models/ring')
 const Blip = require('../models/blip')
 const GraphingRadar = require('../graphing/radar')
-const QueryParams = require('./queryParamProcessor')
 const MalformedDataError = require('../exceptions/malformedDataError')
 const SheetNotFoundError = require('../exceptions/sheetNotFoundError')
-const ContentValidator = require('./contentValidator')
-const Sheet = require('./sheet')
 const ExceptionMessages = require('./exceptionMessages')
-const GoogleAuth = require('./googleAuth')
 
 const inputData = require('../../data.yml')
+const columnNames = ['name', 'ring', 'quadrant', 'isNew', 'description']
+
+const rings = ['INNER',
+'GOOD',
+'BAD',
+'OUTER',]
 
 const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   if (title.endsWith('.csv')) {
@@ -32,7 +33,6 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   document.title = title
   d3.selectAll('.loading').remove()
 
-  var rings = _.map(_.uniqBy(blips, 'ring'), 'ring')
   var ringMap = {}
   var maxRings = 4
 
@@ -71,116 +71,6 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   new GraphingRadar(size, radar).init().plot()
 }
 
-const GoogleSheet = function (sheetReference, sheetName) {
-  var self = {}
-
-  self.build = function () {
-    var sheet = new Sheet(sheetReference)
-    sheet.validate(function (error) {
-      if (!error) {
-        Tabletop.init({
-          key: sheet.id,
-          callback: createBlips
-        })
-        return
-      }
-
-      if (error instanceof SheetNotFoundError) {
-        plotErrorMessage(error)
-        return
-      }
-      self.authenticate(false)
-    })
-
-    function createBlips (__, tabletop) {
-      try {
-        if (!sheetName) {
-          sheetName = tabletop.foundSheetNames[0]
-        }
-        var columnNames = tabletop.sheets(sheetName).columnNames
-
-        var contentValidator = new ContentValidator(columnNames)
-        contentValidator.verifyContent()
-        contentValidator.verifyHeaders()
-
-        var all = tabletop.sheets(sheetName).all()
-        var blips = _.map(all, new InputSanitizer().sanitize)
-
-        plotRadar(tabletop.googleSheetName + ' - ' + sheetName, blips, sheetName, tabletop.foundSheetNames)
-      } catch (exception) {
-        plotErrorMessage(exception)
-      }
-    }
-  }
-
-  function createBlipsForProtectedSheet (documentTitle, values, sheetNames) {
-    if (!sheetName) {
-      sheetName = sheetNames[0]
-    }
-    values.forEach(function (value) {
-      var contentValidator = new ContentValidator(values[0])
-      contentValidator.verifyContent()
-      contentValidator.verifyHeaders()
-    })
-
-    const all = values
-    const header = all.shift()
-    var blips = _.map(all, blip => new InputSanitizer().sanitizeForProtectedSheet(blip, header))
-    plotRadar(documentTitle + ' - ' + sheetName, blips, sheetName, sheetNames)
-  }
-
-  self.authenticate = function (force = false, callback) {
-    GoogleAuth.loadGoogle(function (e) {
-      GoogleAuth.login(_ => {
-        var sheet = new Sheet(sheetReference)
-        sheet.processSheetResponse(sheetName, createBlipsForProtectedSheet, error => {
-          if (error.status === 403) {
-            plotUnauthorizedErrorMessage()
-          } else {
-            plotErrorMessage(error)
-          }
-        })
-        if (callback) { callback() }
-      }, force)
-    })
-  }
-
-  self.init = function () {
-    plotLoading()
-    return self
-  }
-
-  return self
-}
-
-const CSVDocument = function () {
-  var self = {}
-
-  self.build = function () {
-    createBlips(d3.csvParse('name,ring,quadrant,isNew,description\n'.concat(inputData)))
-  }
-
-  var createBlips = function (data) {
-    try {
-      var columnNames = data['columns']
-      delete data['columns']
-      var contentValidator = new ContentValidator(columnNames)
-      contentValidator.verifyContent()
-      contentValidator.verifyHeaders()
-      var blips = _.map(data, new InputSanitizer().sanitize)
-      plotRadar(FileName(process.env.RADAR_NAME || 'Mintel'), blips, 'CSV File', [])
-    } catch (exception) {
-      plotErrorMessage(exception)
-    }
-  }
-
-  self.init = function () {
-    return self
-  }
-
-  return self
-}
-
 const FileName = function (url) {
   var search = /([^\\/]+)$/
   var match = search.exec(decodeURIComponent(url.replace(/\+/g, ' ')))
@@ -191,35 +81,17 @@ const FileName = function (url) {
   return url
 }
 
-const GoogleSheetInput = function () {
-  var self = {}
-  var sheet
-
-  self.build = function () {
-    sheet = CSVDocument()
-    sheet.init().build()
+const YamlInput = function () {
+  try {
+    var blips = _.map(inputData, new InputSanitizer().sanitize)
+    plotRadar(FileName(process.env.RADAR_NAME || 'Mintel'), blips, 'CSV File', [])
+  } catch (exception) {
+    plotErrorMessage(exception)
   }
-
-  return self
 }
 
 function setDocumentTitle () {
   document.title = 'Build your own Radar'
-}
-
-function plotLoading (content) {
-  content = d3.select('body')
-    .append('div')
-    .attr('class', 'loading')
-    .append('div')
-    .attr('class', 'input-sheet')
-
-  setDocumentTitle()
-
-  plotLogo(content)
-
-  var bannerText = '<h1>Building your radar...</h1><p>Your Technology Radar will be available in just a few seconds</p>'
-  plotBanner(content, bannerText)
 }
 
 function plotLogo (content) {
@@ -276,50 +148,4 @@ function plotErrorMessage (exception) {
     .html(homePage)
 }
 
-function plotUnauthorizedErrorMessage () {
-  var content = d3.select('body')
-    .append('div')
-    .attr('class', 'input-sheet')
-  setDocumentTitle()
-
-  plotLogo(content)
-
-  var bannerText = '<div><h1>Build your own radar</h1></div>'
-
-  plotBanner(content, bannerText)
-
-  d3.selectAll('.loading').remove()
-  const currentUser = GoogleAuth.geEmail()
-  let homePageURL = window.location.protocol + '//' + window.location.hostname
-  homePageURL += (window.location.port === '' ? '' : ':' + window.location.port)
-  const goBack = '<a href=' + homePageURL + '>GO BACK</a>'
-  const message = `<strong>Oops!</strong> Looks like you are accessing this sheet using <b>${currentUser}</b>, which does not have permission.Try switching to another account.`
-
-  const container = content.append('div').attr('class', 'error-container')
-
-  const errorContainer = container.append('div')
-    .attr('class', 'error-container__message')
-
-  errorContainer.append('div').append('p')
-    .attr('class', 'error-title')
-    .html(message)
-
-  const button = errorContainer.append('button')
-    .attr('class', 'button switch-account-button')
-    .text('SWITCH ACCOUNT')
-
-  errorContainer.append('div').append('p')
-    .attr('class', 'error-subtitle')
-    .html(`or ${goBack} to try a different sheet.`)
-
-  button.on('click', _ => {
-    var queryString = window.location.href.match(/sheetId(.*)/)
-    var queryParams = queryString ? QueryParams(queryString[0]) : {}
-    const sheet = GoogleSheet(queryParams.sheetId, queryParams.sheetName)
-    sheet.authenticate(true, _ => {
-      content.remove()
-    })
-  })
-}
-
-module.exports = GoogleSheetInput
+module.exports = YamlInput
