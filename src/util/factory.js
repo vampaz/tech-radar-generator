@@ -5,7 +5,8 @@ const _ = {
   map: require('lodash/map'),
   uniqBy: require('lodash/uniqBy'),
   capitalize: require('lodash/capitalize'),
-  each: require('lodash/each')
+  each: require('lodash/each'),
+  intersection: require('lodash/intersection')
 }
 
 const InputSanitizer = require('./inputSanitizer')
@@ -18,13 +19,7 @@ const MalformedDataError = require('../exceptions/malformedDataError')
 const SheetNotFoundError = require('../exceptions/sheetNotFoundError')
 const ExceptionMessages = require('./exceptionMessages')
 
-const inputData = require('../../data.yml')
-const columnNames = ['name', 'ring', 'quadrant', 'isNew', 'description']
-
-const rings = ['INNER',
-'GOOD',
-'BAD',
-'OUTER',]
+const { inputData, rings } = require('../data')
 
 const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   if (title.endsWith('.csv')) {
@@ -33,10 +28,11 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   document.title = title
   d3.selectAll('.loading').remove()
 
+  const ringsInData = _.intersection(rings, _.map(_.uniqBy(blips, 'ring'), 'ring'))
   var ringMap = {}
   var maxRings = 4
 
-  _.each(rings, function (ringName, i) {
+  _.each(ringsInData, function (ringName, i) {
     if (i === maxRings) {
       throw new MalformedDataError(ExceptionMessages.TOO_MANY_RINGS)
     }
@@ -71,27 +67,13 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   new GraphingRadar(size, radar).init().plot()
 }
 
-const FileName = function (url) {
-  var search = /([^\\/]+)$/
-  var match = search.exec(decodeURIComponent(url.replace(/\+/g, ' ')))
-  if (match != null) {
-    var str = match[1]
-    return str
-  }
-  return url
-}
-
 const YamlInput = function () {
   try {
     var blips = _.map(inputData, new InputSanitizer().sanitize)
-    plotRadar(FileName(process.env.RADAR_NAME || 'Mintel'), blips, 'CSV File', [])
+    plotRadar(process.env.RADAR_NAME || 'Mintel', blips, 'CSV File', [])
   } catch (exception) {
     plotErrorMessage(exception)
   }
-}
-
-function setDocumentTitle () {
-  document.title = 'Build your own Radar'
 }
 
 function plotLogo (content) {
@@ -112,7 +94,6 @@ function plotErrorMessage (exception) {
   var content = d3.select('body')
     .append('div')
     .attr('class', 'input-sheet')
-  setDocumentTitle()
 
   plotLogo(content)
 

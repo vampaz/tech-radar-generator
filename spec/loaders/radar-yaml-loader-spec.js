@@ -33,7 +33,7 @@ function createCompiler (fixture, options = {}) {
   })
 }
 
-fdescribe('radar-yaml-loader', () => {
+describe('radar-yaml-loader', () => {
   ['example-simple'].forEach((fixture) => {
     it(`transforms ${fixture}`, async () => {
       const stats = await createCompiler(`./${fixture}.yml`)

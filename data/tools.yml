@@ -1,0 +1,7 @@
+- name: Placeholder
+  quadrant: Tools
+  ring: ADOPT
+  isNew: true
+  description: |
+    This is a placeholder.
+

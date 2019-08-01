@@ -3,7 +3,7 @@
     "name": "Java",
     "quadrant": "Bottom Right",
     "ring": "INNER",
-    "isNew": true,
+    "isNew": "true",
     "description": "This is a cool description"
   }
 ]
