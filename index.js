@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const Ajv = require('ajv')
 
 const schema = require('./schema.json')
@@ -14,20 +15,20 @@ const ajv = new Ajv({ allErrors: true })
 /**
  * Generates a static Thoughtworks Radar.
  * @param {object} data The data for the radar
- * @param {string} string The path to the output directory
+ * @param {string} outputArg The relative or absolute path to the output directory
  * @param {RadarOptions} [options] The radar options
  * @return {Promise<string>} A promise resolving to the output directory path
  */
-function techRadarGenerator (data, outputDir, { mode = 'production' } = {}) {
+function techRadarGenerator (data, outputArg, { mode = 'production' } = {}) {
   return new Promise((resolve, reject) => {
     const valid = ajv.validate(schema, data)
     if (!valid) {
       const err = new Error(`Config did not match JSON schema: ${ajv.errorsText()}`)
       return reject(err)
     }
-
+    const outputPath = path.resolve(outputArg)
     config.mode = mode
-    config.output.path = outputDir
+    config.output.path = outputPath
     const valLoader = config.module.rules.find(
       el => el.use && el.use.loader && el.use.loader === require.resolve('val-loader')
     )
@@ -37,7 +38,7 @@ function techRadarGenerator (data, outputDir, { mode = 'production' } = {}) {
       if (err || stats.hasErrors()) {
         reject(err || stats.toString({ colors: true }))
       } else {
-        resolve(outputDir)
+        resolve(outputPath)
       }
     })
   })

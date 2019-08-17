@@ -3,12 +3,12 @@
 
 # Tech Radar Generator
 
-A library that generates a static site version of the [ThoughtWorks Tech Radar][radar] from a JSON configuration object. This library is a fork of the [ThoughtWorks Build-Your-Own-Radar][byor] app.
+A library for creating a [ThoughtWorks Tech Radar][radar] as a static site. This project was forked from the [ThoughtWorks Build-Your-Own-Radar][byor] app, but modified for distribution as a reusable package.
 
 [radar]: https://www.thoughtworks.com/radar
 [byor]: https://github.com/thoughtworks/build-your-own-radar
 
-*This library is work-in-progress! Some of the features and documentation might not be quite right yet.*
+*This library is work-in-progress! Some of the features and documentation are not finalised or fully tested yet.*
 
 ## Overview
 
@@ -16,11 +16,11 @@ A tech radar is an app for visualising trends within an area of software develop
 
 [byor-why]: https://www.thoughtworks.com/insights/blog/build-your-own-technology-radar
 
-This library is a tool for generating a static website version of your own custom tech radar. The library provides a CLI script which takes in an input JSON file containing the configuration of your radar, and outputs a directory with HTML, a bundled JS app, and other static assets associated with the radar. This generated code can then be served as static files by any means, such as with an Nginx Docker image.
+This library is a tool for generating your own custom tech radar. The library provides a CLI script which takes in an input JSON file containing the configuration of your radar, and outputs a directory with HTML, a bundled JS app, and other static assets associated with the radar. The generated assets can then be served as a static site.
 
 ## Usage with the CLI
 
-First, create a JSON file containing the data determining your tech radar. The JSON data should contain the title of the radar, an array of the rings you wish to use, and an array of blips on the radar. This JSON is validated against a [JSON schema][schema] before being processed. For example:
+First, create a JSON file containing the data determining your tech radar. The JSON data should contain the title of the radar, an array of the rings you wish to use, and an array of blips on the radar. This data is validated against a [JSON schema][schema] before being processed. For example:
 
 ```json
 {
@@ -33,30 +33,24 @@ First, create a JSON file containing the data determining your tech radar. The J
       "ring": "hold",
       "isNew": false,
       "description": "We continue to see teams run into trouble using JSF ..."
-    },
-    /* ... */
+    }
   ]
 }
 ```
 [schema]: https://github.com/dprgarner/tech-radar-generator/blob/master/schema.json
 
-Next, install this library and run the tool against the JSON data. If this is being incorporated into an existing JavaScript project:
+Next, install this library and run the tool against the JSON data. If this tool is being incorporated into an existing JavaScript project:
 ```bash
-> yarn global add tech-radar-generator
+> yarn add tech-radar-generator
 > yarn tech-radar-generator ./my-radar.json ./dist
 ```
 
-For global use:
-```bash
-> yarn global add tech-radar-generator
-> tech-radar-generator ./my-radar.json ./dist
-```
-or alternatively, using npx:
+If this tool is not being incorporated into a JavaScript project, the package can be run using npx:
 ```bash
 > npx tech-radar-generator ./my-radar.json ./dist
 ```
 
-The full options for the CLI tool can be seen by running `tech-radar-generator --help`:
+The options for the CLI tool can be seen by running `tech-radar-generator --help`:
 
 ```bash
 > tech-radar-generator --help
@@ -74,9 +68,10 @@ Options:
   --help     Show help                                                 [boolean]
 ```
 
-## Usage with the library programatically via Node
+## Usage within Node
 
-This library also exports a function which takes the data, destination, and options as arguments and returns a promise resolving to the output directory.
+This library also exports a function version of the CLI, which takes the data, destination, and options as arguments and returns a promise resolving to the output directory.
+
 ```js
 const techRadarGenerator = require('tech-radar-generator')
 const data = require('./my-radar.json')
@@ -99,30 +94,29 @@ Unlike the CLI, this function takes the source data as a JavaScript object, and 
 
 ## Developing
 
-This tool is powered by Webpack. Some commonly-used scripts are given in the npm-scripts.
+This tool is powered by Webpack. Some commonly-used scripts are set in the npm-scripts.
 
 To run the webpack-dev-server:
 
-     yarn dev
+    yarn dev
 
 To run the tests:
 
-     yarn test
+    yarn test
 
 To run the linter:
 
-     yarn lint
+    yarn lint
 
 To format the code using [standard][standard]:
 
-     yarn format
+    yarn format
 
 [standard]: https://standardjs.com/
 
 ## Releasing
 
-Releases to NPM are performed via Travis when tagged commits are pushed to the
-repo. Create a new tagged commit and bump the version in package.json with:
+Releases to NPM are performed via Travis when tagged commits are pushed to the repo. Create a new tagged commit and bump the version in package.json with the npm version script:
 
 ```bash
 npm version patch
@@ -137,7 +131,3 @@ git push && git push --tags
 ## Acknowledgements
 
 This library is based off of the [ThoughtWorks Build-Your-Own-Radar](https://github.com/thoughtworks/build-your-own-radar) project.
-
-## Notes
-
-- Better rings idea: https://medium.com/ingeniouslysimple/building-our-own-tech-radar-1e577e48659c

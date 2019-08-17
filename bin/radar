@@ -24,11 +24,10 @@ const argv = require('yargs')
   .help()
   .argv
 
-const input = path.resolve(process.cwd(), argv.input)
-const outputDir = path.resolve(process.cwd(), argv.output)
+const input = path.resolve(argv.input)
 const data = JSON.parse(fs.readFileSync(input, 'utf8'))
 
-require('..')(data, outputDir, { mode: argv.dev ? 'development' : 'production' })
+require('..')(data, argv.output, { mode: argv.dev ? 'development' : 'production' })
   .then(dist => {
     console.log(tree(dist))
   })
