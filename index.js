@@ -29,7 +29,7 @@ function techRadarGenerator (data, outputDir, { mode = 'production' } = {}) {
     config.mode = mode
     config.output.path = outputDir
     const valLoader = config.module.rules.find(
-      el => el.use && el.use.loader && el.use.loader === 'val-loader'
+      el => el.use && el.use.loader && el.use.loader === require.resolve('val-loader')
     )
     valLoader.use.options.data = data
 

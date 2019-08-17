@@ -8,20 +8,22 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 const cssnano = require('cssnano')
 
-let main = ['./src/site.js']
-let common = ['./src/common.js']
+const r = f => path.resolve(__dirname, f)
+
+let main = [r('src/site.js')]
+let common = [r('./src/common.js')]
 let devtool
 
 let plugins = [
   new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),
   new HtmlWebpackPlugin({
-    template: './src/index.html',
+    template: r('./src/index.html'),
     chunks: ['main'],
     inject: 'body'
   }),
   new HtmlWebpackPlugin({
-    template: './src/error.html',
+    template: r('./src/error.html'),
     chunks: ['common'],
     inject: 'body',
     filename: 'error.html'
@@ -29,7 +31,7 @@ let plugins = [
 ]
 
 module.exports = {
-  context: path.resolve(__dirname),
+  context: process.cwd(),
 
   entry: {
     'main': main,
@@ -51,46 +53,66 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, use: [{ loader: 'babel-loader' }] },
+      {
+        test: /\.js$/,
+        include: r('./src'),
+        use: [{ loader: require.resolve('babel-loader') }]
+      },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, {
-          loader: 'css-loader',
-          options: { importLoaders: 1 }
-        },
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: () => [
-              postcssPresetEnv({ browsers: 'last 2 versions' }),
-              cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
-            ]
-          }
-        }, 'sass-loader']
+        include: r('./src'),
+        use: [
+          require.resolve('style-loader'),
+          MiniCssExtractPlugin.loader, {
+            loader: require.resolve('css-loader'),
+            options: { importLoaders: 1 }
+          },
+          {
+            loader: require.resolve('postcss-loader'),
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                postcssPresetEnv({ browsers: 'last 2 versions' }),
+                cssnano({ preset: ['default', { discardComments: { removeAll: true } }] })
+              ]
+            }
+          },
+          require.resolve('sass-loader')
+        ]
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=images/[name].[ext]'
+        loader: require.resolve('file-loader'),
+        options: {
+          name: 'images/[name].[ext]'
+        }
       },
-      {
-        test: /\.yml$/,
-        loader: path.resolve('./loaders/radar-yaml-loader.js')
-      },
+      // {
+      //   test: /\.yml$/,
+      //   loader: path.resolve('./loaders/radar-yaml-loader.js')
+      // },
       {
         test: /\.(png|jpg|ico)$/,
-        exclude: /node_modules/,
-        use: [{ loader: 'file-loader?name=images/[name].[ext]&context=./src/images' }]
+        include: r('./src'),
+        use: [{
+          loader: require.resolve('file-loader'),
+          options: {
+            name: 'images/[name].[ext]',
+            context: r('./src/images')
+          }
+        }]
       },
       {
         test: require.resolve('jquery'),
-        use: [{ loader: 'expose-loader', options: 'jQuery' }, { loader: 'expose-loader', options: '$' }]
+        use: [
+          { loader: require.resolve('expose-loader'), options: 'jQuery' },
+          { loader: require.resolve('expose-loader'), options: '$' }
+        ]
       },
       {
-        test: require.resolve('./src/data'),
+        test: r('./src/data'),
         use: {
-          loader: 'val-loader',
+          loader: require.resolve('val-loader'),
           options: {
             // This is only used by webpack-dev-server, and is overridden in main.js
             data: require('./example-data.json')
