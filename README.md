@@ -1,4 +1,9 @@
-A library that generates an interactive radar, based off of [thoughtworks.com/radar](http://thoughtworks.com/radar).
+# Tech Radar Generator
+
+A library that generates a static site version of the [ThoughtWorks Tech Radar][radar] from a JSON configuration object. This library is a fork of the [ThoughtWorks Build-Your-Own-Radar][byor] app.
+
+[radar]: https://www.thoughtworks.com/radar
+[byor]: https://github.com/thoughtworks/build-your-own-radar
 
 ## How To Use
 
@@ -32,9 +37,11 @@ npm install && npm rebuild node-sass && npm run dev
 
 After building it will start on `localhost:8080`
 
-----
-
 ## Notes
 
 - Data format idea: https://github.com/thoughtworks/build-your-own-radar/issues/47
 - Better rings idea: https://medium.com/ingeniouslysimple/building-our-own-tech-radar-1e577e48659c
+
+## Acknowledgements
+
+This library is based off of the [ThoughtWorks Build-Your-Own-Radar](https://github.com/thoughtworks/build-your-own-radar) project.

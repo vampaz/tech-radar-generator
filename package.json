@@ -1,21 +1,25 @@
 {
-  "name": "build-your-own-radar",
+  "name": "tech-radar-generator",
   "version": "0.3.0",
   "description": "",
   "main": "index.js",
   "bin": {
-    "radar": "./bin/radar.js"
+    "tech-radar-generator": "./bin/radar.js"
   },
   "scripts": {
     "test": "istanbul cover jasmine",
     "lint": "standard",
     "format": "standard --fix",
-    "dev": "webpack-dev-server --mode development"
+    "dev": "webpack-dev-server"
   },
-  "author": "ThoughtWorks",
+  "author": {
+    "name": "David Garner",
+    "email": "dprgarner@gmail.com",
+    "url": "https://github.com/dprgarner/tech-radar-generator"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/thoughtworks/build-your-own-radar"
+    "url": "https://github.com/dprgarner/tech-radar-generator"
   },
   "keywords": [
     "tech-radar"
