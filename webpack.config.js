@@ -87,10 +87,6 @@ module.exports = {
           name: 'images/[name].[ext]'
         }
       },
-      // {
-      //   test: /\.yml$/,
-      //   loader: path.resolve('./loaders/radar-yaml-loader.js')
-      // },
       {
         test: /\.(png|jpg|ico)$/,
         include: r('./src'),
