@@ -1,6 +1,6 @@
 {
   "title": "Example Radar",
-  "rings": ["adopt", "explore", "endure", "retire"],
+  "rings": ["adopt", "trial", "assess", "hold"],
   "blips": [
     {
       "name": "JavaScript",
@@ -12,21 +12,21 @@
     {
       "name": "Go",
       "quadrant": "Quad2",
-      "ring": "explore",
+      "ring": "trial",
       "isNew": true,
       "description": "This is a simple description"
     },
     {
       "name": "Java",
       "quadrant": "Quad3",
-      "ring": "endure",
+      "ring": "assess",
       "isNew": false,
       "description": "This is a <a href=\"/\">description</a><br /><br />Spanning several lines."
     },
     {
       "name": "C++",
       "quadrant": "Quad4",
-      "ring": "retire",
+      "ring": "hold",
       "isNew": false,
       "description": "This is another simple description"
     }

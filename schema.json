@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/dprgarner/tech-radar-generator/master/schema.json",
   "type": "object",
   "title": "Radar",
   "description": "The schema for the tech-radar-generator data.",

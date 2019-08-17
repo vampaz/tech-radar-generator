@@ -7,10 +7,10 @@
     "tech-radar-generator": "./bin/radar.js"
   },
   "scripts": {
+    "dev": "webpack-dev-server",
     "test": "istanbul cover jasmine",
     "lint": "standard",
-    "format": "standard --fix",
-    "dev": "webpack-dev-server"
+    "format": "standard --fix"
   },
   "author": {
     "name": "David Garner",
