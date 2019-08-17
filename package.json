@@ -3,9 +3,7 @@
   "version": "0.4.0",
   "description": "A library that generates an interactive radar, inspired by http://thoughtworks.com/radar/",
   "main": "index.js",
-  "bin": {
-    "tech-radar-generator": "./bin/radar.js"
-  },
+  "bin": "./bin/radar",
   "scripts": {
     "dev": "webpack-dev-server",
     "test": "istanbul cover jasmine",

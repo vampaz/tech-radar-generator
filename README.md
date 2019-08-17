@@ -8,6 +8,8 @@ A library that generates a static site version of the [ThoughtWorks Tech Radar][
 [radar]: https://www.thoughtworks.com/radar
 [byor]: https://github.com/thoughtworks/build-your-own-radar
 
+*This library is work-in-progress! Some of the features and documentation might not be quite right yet.*
+
 ## Overview
 
 A tech radar is an app for visualising trends within an area of software development. They reflect the opinions and decisions of the creators and curators of the radar, and by their nature are highly subjective. They are often used to reflect the decisions and future directions of a company. A more in-depth discussion of why you might want to build a Tech Radar, and the design decisions for the original ThoughtWorks tech radar, are given [here][byor-why].
