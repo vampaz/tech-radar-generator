@@ -1,8 +1,6 @@
 'use strict'
 
-const webpack = require('webpack')
 const path = require('path')
-const buildPath = path.join(__dirname, './dist')
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -27,17 +25,17 @@ let plugins = [
     chunks: ['common'],
     inject: 'body',
     filename: 'error.html'
-  }),
-  new webpack.DefinePlugin({
-    'process.env.RADAR_NAME': JSON.stringify(process.env.RADAR_NAME)
   })
 ]
 
 module.exports = {
+  context: path.resolve(__dirname),
+
   entry: {
     'main': main,
     'common': common
   },
+
   node: {
     fs: 'empty',
     net: 'empty',
@@ -46,7 +44,7 @@ module.exports = {
   },
 
   output: {
-    path: buildPath,
+    // Output path is set in main.js
     publicPath: '/',
     filename: '[name].[hash].js'
   },
@@ -94,6 +92,7 @@ module.exports = {
         use: {
           loader: 'val-loader',
           options: {
+            // This is only used by webpack-dev-server, and is overridden in main.js
             data: require('./example-data.json')
           }
         }
@@ -106,7 +105,6 @@ module.exports = {
   devtool: devtool,
 
   devServer: {
-    contentBase: buildPath,
     host: '0.0.0.0',
     port: 8080
   }

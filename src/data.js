@@ -1,6 +1,6 @@
 /**
- * This file is transpiled using val-loader, which provides the static data from
- * the consumer of this library.
+ * This file is transpiled using val-loader, which interpolates in the static
+ * data provided by the consumer of this library.
  */
 
 module.exports = ({ data }) => ({ code: `

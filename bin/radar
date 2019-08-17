@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+const tree = require('tree-node-cli')
+
+const argv = require('yargs')
+  .option('dev', {
+    alias: 'd',
+    describe: 'build in development mode',
+    boolean: 'development'
+  })
+  .option('input', {
+    alias: 'i',
+    describe: 'the path to a valid JSON config input'
+  })
+  .option('output', {
+    alias: 'o',
+    describe: 'the path to output the generated dist'
+  })
+  .demandOption(['input', 'output'], 'An input config and output destination must be provided')
+  .help()
+  .argv
+
+const fs = require('fs')
+const path = require('path')
+const input = path.resolve(process.cwd(), argv.input)
+const outputDir = path.resolve(process.cwd(), argv.output)
+const data = fs.readFileSync(input, 'utf8')
+
+require('..')({ mode: argv.dev ? 'development' : 'production', data, outputDir })
+  .catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
+  .then(dist => {
+    console.log(tree(dist))
+  })
