@@ -29,7 +29,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
 
   const ringsInData = _.intersection(rings, _.map(_.uniqBy(blips, 'ring'), 'ring'))
   var ringMap = {}
-  var maxRings = 4
+  const maxRings = 4
 
   _.each(ringsInData, function (ringName, i) {
     if (i === maxRings) {
@@ -69,7 +69,7 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
 const YamlInput = function () {
   try {
     var blips = _.map(inputData, new InputSanitizer().sanitize)
-    plotRadar(process.env.RADAR_NAME || 'Mintel', blips, 'CSV File', [])
+    plotRadar(process.env.RADAR_NAME || 'Radar', blips, 'CSV File', [])
   } catch (exception) {
     plotErrorMessage(exception)
   }
