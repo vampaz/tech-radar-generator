@@ -3,12 +3,14 @@
   "version": "0.3.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "radar": "./bin/radar.js"
+  },
   "scripts": {
     "test": "istanbul cover jasmine",
     "lint": "standard",
     "format": "standard --fix",
-    "dev": "webpack-dev-server --mode development",
-    "build": "webpack --mode production"
+    "dev": "webpack-dev-server --mode development"
   },
   "author": "ThoughtWorks",
   "repository": {
@@ -55,7 +57,9 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "tree-node-cli": "^1.2.5",
-    "webpack": "^4.28.0"
+    "val-loader": "^1.1.1",
+    "webpack": "^4.28.0",
+    "yargs": "^13.3.0"
   },
   "standard": {
     "env": [

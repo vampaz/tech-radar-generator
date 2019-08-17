@@ -88,6 +88,15 @@ module.exports = {
       {
         test: require.resolve('jquery'),
         use: [{ loader: 'expose-loader', options: 'jQuery' }, { loader: 'expose-loader', options: '$' }]
+      },
+      {
+        test: require.resolve('./src/data'),
+        use: {
+          loader: 'val-loader',
+          options: {
+            data: require('./example-data.json')
+          }
+        }
       }
     ]
   },

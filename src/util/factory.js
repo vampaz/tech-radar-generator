@@ -18,7 +18,7 @@ const GraphingRadar = require('../graphing/radar')
 const MalformedDataError = require('../exceptions/malformedDataError')
 const ExceptionMessages = require('./exceptionMessages')
 
-const { inputData, rings } = require('../data')
+const { blipsJson, rings, title: radarTitle } = require('../data')
 
 const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   if (title.endsWith('.csv')) {
@@ -68,8 +68,8 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
 
 const YamlInput = function () {
   try {
-    var blips = _.map(inputData, new InputSanitizer().sanitize)
-    plotRadar(process.env.RADAR_NAME || 'Radar', blips, 'CSV File', [])
+    var blips = _.map(blipsJson, new InputSanitizer().sanitize)
+    plotRadar(radarTitle, blips, 'CSV File', [])
   } catch (exception) {
     plotErrorMessage(exception)
   }
