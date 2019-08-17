@@ -10,14 +10,14 @@ jobs:
     name: Linting
     script: yarn lint
 
-  # - stage: deploy
-  #   script: skip
-  #   deploy:
-  #     provider: npm
-  #     email: dprgarner@gmail.com
-  #     skip_cleanup: true
-  #     on:
-  #       tags: true
-  #       repo: dprgarner/tech-radar-generator
-  #     api_key:
-  #       secure: ???
+  - stage: deploy
+    script: skip
+    deploy:
+      provider: npm
+      email: dprgarner@gmail.com
+      skip_cleanup: true
+      on:
+        tags: true
+        repo: dprgarner/tech-radar-generator
+      api_key:
+        secure: "bk6gcLCIciM+rLLCbGl6QL+prRV6DMFbSaJqK//oVyHUa8t8PRkuF1egGhPNZ2opBVzV+NoH6wRVphMn7/ytM7K5lVCdWiU7+4JCGLswNHOB3YH572Q5ebEKSc4af/eGEsUII9Sa35HakCUaWB7DZdM+JWBRQYtE8HgpSEMXlklEWeTNUe/QoEKVFGJBzZVBZUJYMojP65TAbQnIfL669ZPt0vNZiM8dqOeUxgdAqjEGh5eXSoRzSwh+pRRavtgtFDnbYR0jgm8d6sutL+sVycwFivJd5GAuGZS241c2Nw282v5GaU7sO9ZVY1XCuw3XBHqvAjRoiFXmyjuHUhp4GywOdV4nstorqO9vV633l9iyhXpWiEg4XirvjiDCwPowfMZtRgdCn2zXtNcUTFbBt9q2UQaWCQsy6rpg9B4UUVdSF4Hua9Kaqu/YcW586728y975iFe3ghTl1a8D5/bnwB9/vgVKKF6PeajCam/Ko8Lg6FsvUftMAS3liY+NYyyCea7Ndz+G0QN2vnmpdOvHscs361uySneJ3V/qy1WGmbK8IbEKlpnirXBtYkzEsqQRwOpVZqftaWeA98SziBiyxzeU5yiBaYOiSNgpMiz+K/Fb9FGgStxtam5K8POGmsyDhDF+8LIQ+rKJI+RxAVAlPi6MdxfjmSHmmUJ5Us0FDPc="

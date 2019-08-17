@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/dprgarner/tech-radar-generator.svg?branch=master)](https://travis-ci.org/dprgarner/tech-radar-generator)
+[![npm](https://img.shields.io/npm/v/tech-radar-generator)](http://npmjs.com/package/tech-radar-generator)
+
 # Tech Radar Generator
 
 A library that generates a static site version of the [ThoughtWorks Tech Radar][radar] from a JSON configuration object. This library is a fork of the [ThoughtWorks Build-Your-Own-Radar][byor] app.
@@ -114,10 +117,25 @@ To format the code using [standard][standard]:
 
 [standard]: https://standardjs.com/
 
-## Notes
+## Releasing
 
-- Better rings idea: https://medium.com/ingeniouslysimple/building-our-own-tech-radar-1e577e48659c
+Releases to NPM are performed via Travis when tagged commits are pushed to the
+repo. Create a new tagged commit and bump the version in package.json with:
+
+```bash
+npm version patch
+```
+
+and push the new commits and tags with:
+
+```bash
+git push && git push --tags
+```
 
 ## Acknowledgements
 
 This library is based off of the [ThoughtWorks Build-Your-Own-Radar](https://github.com/thoughtworks/build-your-own-radar) project.
+
+## Notes
+
+- Better rings idea: https://medium.com/ingeniouslysimple/building-our-own-tech-radar-1e577e48659c
