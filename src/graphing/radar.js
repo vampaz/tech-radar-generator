@@ -5,6 +5,8 @@ const _ = require('lodash/core')
 const $ = require('jquery')
 require('jquery-ui/ui/widgets/autocomplete')
 
+d3.tip = d3tip.default
+
 const RingCalculator = require('../util/ringCalculator')
 const QueryParams = require('../util/queryParamProcessor')
 
@@ -14,7 +16,7 @@ const ANIMATION_DURATION = 1000
 const Radar = function (size, radar) {
   var svg, radarElement, quadrantButtons, buttonsGroup, header, alternativeDiv
 
-  var tip = d3tip().attr('class', 'd3-tip').html(function (text) {
+  var tip = d3.tip().attr('class', 'd3-tip').html(function (text) {
     return text
   })
 
