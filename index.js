@@ -1,6 +1,10 @@
 const webpack = require('webpack')
+const Ajv = require('ajv')
 
+const schema = require('./schema.json')
 const config = require('./webpack.config')
+
+const ajv = new Ajv({ allErrors: true })
 
 /**
  * @typedef RadarOptions
@@ -15,12 +19,18 @@ const config = require('./webpack.config')
  * @return {Promise<string>} A promise resolving to the output directory path
  */
 module.exports = ({ mode, data, outputDir }) => new Promise((resolve, reject) => {
+  const valid = ajv.validate(schema, data)
+  if (!valid) {
+    const err = new Error(`Config did not match JSON schema: ${ajv.errorsText()}`)
+    return reject(err)
+  }
+
   config.mode = mode || 'production'
   config.output.path = outputDir
   const valLoader = config.module.rules.find(
     el => el.use && el.use.loader && el.use.loader === 'val-loader'
   )
-  valLoader.use.options.data = JSON.parse(data)
+  valLoader.use.options.data = data
 
   webpack(config, (err, stats) => {
     if (err || stats.hasErrors()) {

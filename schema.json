@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "Radar",
+  "description": "The schema for the tech-radar-generator data.",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "The title of the radar"
+    },
+    "rings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The names of up to four rings, ordered from centre to outside",
+      "minItems": 1,
+      "maxItems": 4
+    },
+    "blips": {
+      "type": "array",
+      "description": "The blips on the tech radar",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the blip"
+          },
+          "quadrant": {
+            "type": "string",
+            "description": "The quadrant of the radar the blip should appear in"
+          },
+          "ring": {
+            "type": "string",
+            "description": "The ring on the radar the blip should appear in. Must take one of the provided ring values"
+          },
+          "isNew": {
+            "type": "boolean",
+            "description": "True if the blip has been created or modified recently"
+          },
+          "description": {
+            "type": "string",
+            "description": "A short summary of the blip and why it is in the current ring"
+          }
+        },
+        "required": ["name", "quadrant", "ring", "isNew", "description"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["title", "rings", "blips"],
+  "additionalProperties": false
+}
