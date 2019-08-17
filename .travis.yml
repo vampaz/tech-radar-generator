@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+- 8
+jobs:
+  include:
+  - stage: test
+    name: Unit Tests
+    script: yarn test
+  - stage: test
+    name: Linting
+    script: yarn lint
+
+  # - stage: deploy
+  #   script: skip
+  #   deploy:
+  #     provider: npm
+  #     email: dprgarner@gmail.com
+  #     skip_cleanup: true
+  #     on:
+  #       tags: true
+  #       repo: dprgarner/tech-radar-generator
+  #     api_key:
+  #       secure: ???
