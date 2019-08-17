@@ -7,7 +7,7 @@
     "test": "istanbul cover jasmine",
     "lint": "standard",
     "format": "standard --fix",
-    "dev": "webpack-dev-server --mode development --inline",
+    "dev": "webpack-dev-server --mode development",
     "build": "webpack --mode production"
   },
   "author": "ThoughtWorks",
@@ -20,63 +20,46 @@
   ],
   "license": "AGPL-3.0",
   "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jasmine": "^3.3.1",
+    "jsdom": "^13.1.0",
+    "memory-fs": "^0.4.1",
+    "standard": "^12.0.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
     "@babel/core": "^7.2.2",
     "babel-loader": "^8.0.4",
     "babel-preset-env": "^1.7.0",
+    "chance": "^1.0.18",
+    "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^2.0.1",
     "cssnano": "^4.1.7",
+    "d3": "^5.9.7",
+    "d3-tip": "^0.9.1",
     "dotenv": "^5.0.1",
     "expose-loader": "^0.7.5",
     "file-loader": "^3.0.1",
     "html-webpack-plugin": "^3.2.0",
-    "istanbul": "^0.4.5",
-    "jasmine": "^3.3.1",
-    "jsdom": "^13.1.0",
-    "json-loader": "^0.5.7",
-    "memory-fs": "^0.4.1",
-    "mini-css-extract-plugin": "^0.5.0",
-    "mocha": "^5.2.0",
-    "mochawesome": "^3.1.1",
-    "node-sass": "^4.11.0",
-    "postcss-loader": "^3.0.0",
-    "postcss-preset-env": "^6.5.0",
-    "raw-loader": "^3.1.0",
-    "sass-loader": "^7.1.0",
-    "standard": "^12.0.1",
-    "style-loader": "^0.23.1",
-    "tar": ">=4.4.2",
-    "webpack": "^4.28.0",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.14",
-    "xmlhttprequest": "^1.8.0",
-    "yargs": "^12.0.5"
-  },
-  "dependencies": {
-    "chance": "^1.0.18",
-    "d3": "^5.9.7",
-    "d3-tip": "^0.9.1",
     "jquery": "^3.4.0",
     "jquery-ui": "^1.12.1",
     "js-yaml": "^3.13.1",
+    "json-loader": "^0.5.7",
     "lodash": "^4.17.11",
-    "sanitize-html": "^1.20.0"
-  },
-  "peerDependencies": {
-    "mocha": "*"
+    "mini-css-extract-plugin": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.5.0",
+    "sanitize-html": "^1.20.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "tree-node-cli": "^1.2.5",
+    "webpack": "^4.28.0"
   },
   "standard": {
-    "globals": [
-      "Cypress",
-      "cy",
-      "XMLHttpRequest"
-    ],
     "env": [
-      "jasmine",
-      "mocha"
-    ],
-    "ignore": [
-      "radar-spec.js",
-      "ref-table-spec.js"
+      "jasmine"
     ]
   }
 }

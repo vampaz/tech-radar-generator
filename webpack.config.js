@@ -3,31 +3,19 @@
 const webpack = require('webpack')
 const path = require('path')
 const buildPath = path.join(__dirname, './dist')
-const args = require('yargs').argv
 
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const postcssPresetEnv = require('postcss-preset-env')
 const cssnano = require('cssnano')
 
-let isProd = args.prod
-let isDev = args.dev
-let env = args.envFile
-if (env) {
-  // Load env file
-  require('dotenv').config({ path: env })
-}
-
 let main = ['./src/site.js']
 let common = ['./src/common.js']
 let devtool
 
-if (isDev) {
-  main.push('webpack-dev-server/client?http://0.0.0.0:8080')
-  devtool = 'source-map'
-}
-
 let plugins = [
+  new CleanWebpackPlugin(),
   new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),
   new HtmlWebpackPlugin({
     template: './src/index.html',
@@ -44,12 +32,6 @@ let plugins = [
     'process.env.RADAR_NAME': JSON.stringify(process.env.RADAR_NAME)
   })
 ]
-
-if (isProd) {
-  plugins.push(
-    new webpack.NoEmitOnErrorsPlugin()
-  )
-}
 
 module.exports = {
   entry: {

@@ -9,7 +9,6 @@ const rings = [
   'ENDURE',
   'RETIRE'
 ]
-
 const inputData = [].concat(languagesFrameworks, platforms, techniques, tools)
 
 module.exports = { inputData, rings }
