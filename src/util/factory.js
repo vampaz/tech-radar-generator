@@ -16,7 +16,6 @@ const Ring = require('../models/ring')
 const Blip = require('../models/blip')
 const GraphingRadar = require('../graphing/radar')
 const MalformedDataError = require('../exceptions/malformedDataError')
-const SheetNotFoundError = require('../exceptions/sheetNotFoundError')
 const ExceptionMessages = require('./exceptionMessages')
 
 const { inputData, rings } = require('../data')
@@ -76,12 +75,6 @@ const YamlInput = function () {
   }
 }
 
-function plotLogo (content) {
-  content.append('div')
-    .attr('class', 'input-sheet__logo')
-    .html('<a href="https://www.thoughtworks.com"><img src="/images/tw-logo.png" / ></a>')
-}
-
 function plotBanner (content, text) {
   content.append('div')
     .attr('class', 'input-sheet__banner')
@@ -89,13 +82,9 @@ function plotBanner (content, text) {
 }
 
 function plotErrorMessage (exception) {
-  var message = 'Oops! It seems like there are some problems with loading your data. '
-
   var content = d3.select('body')
     .append('div')
     .attr('class', 'input-sheet')
-
-  plotLogo(content)
 
   var bannerText = '<div><h1>Build your own radar</h1><p>Once you\'ve <a href ="https://www.thoughtworks.com/radar/byor">created your Radar</a>, you can use this service' +
     ' to generate an <br />interactive version of your Technology Radar. Not sure how? <a href ="https://www.thoughtworks.com/radar/how-to-byor">Read this first.</a></p></div>'
@@ -103,15 +92,9 @@ function plotErrorMessage (exception) {
   plotBanner(content, bannerText)
 
   d3.selectAll('.loading').remove()
-  message = "Oops! We can't find the Google Sheet you've entered"
+  const message = 'Oops! It seems like there are some problems with loading your data. '
   var faqMessage = 'Please check <a href="https://www.thoughtworks.com/radar/how-to-byor">FAQs</a> for possible solutions.'
-  if (exception instanceof MalformedDataError) {
-    message = message.concat(exception.message)
-  } else if (exception instanceof SheetNotFoundError) {
-    message = exception.message
-  } else {
-    console.error(exception)
-  }
+  console.error(exception)
 
   const container = content.append('div').attr('class', 'error-container')
   var errorContainer = container.append('div')

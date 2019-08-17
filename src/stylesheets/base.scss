@@ -4,13 +4,12 @@
 @import 'form';
 @import 'error';
 @import 'header';
-@import 'footer';
 @import url(https://www.thoughtworks.com/css/screen.css);
 
 body {
   font: 18px 'Open Sans';
   -webkit-font-smoothing: antialiased;
-  margin: 0;
+  margin: 0 0 64px;
 }
 
 @media print {

@@ -14,3 +14,4 @@ spec/end_to_end_tests/reports/
 cypress/
 
 .env
+.vscode
