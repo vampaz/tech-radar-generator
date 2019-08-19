@@ -12,15 +12,29 @@ A library for creating a [ThoughtWorks Tech Radar][radar] as a static site. This
 
 ## Overview
 
-A tech radar is an app for visualising trends within an area of software development. They reflect the opinions and decisions of the creators and curators of the radar, and by their nature are highly subjective. They are often used to reflect the decisions and future directions of a company. A more in-depth discussion of why you might want to build a Tech Radar, and the design decisions for the original ThoughtWorks tech radar, are given [here][byor-why].
+A tech radar is an app for visualising trends within an area of software development. They reflect the opinions and decisions of the creators and curators of the radar, and by their nature are highly subjective. They are generally used to reflect the technology decisions and future technical directions within a company, team, or project. A more in-depth discussion of why you might want to build a Tech Radar, and the design decisions for the original ThoughtWorks tech radar, are given [here][byor-why].
 
 [byor-why]: https://www.thoughtworks.com/insights/blog/build-your-own-technology-radar
 
-This library is a tool for generating your own custom tech radar. The library provides a CLI script which takes in an input JSON file containing the configuration of your radar, and outputs a directory with HTML, a bundled JS app, and other static assets associated with the radar. The generated assets can then be served as a static site.
+This library is a tool for generating your own custom tech radar. The library provides a CLI script which takes in as input a JSON file containing the data behind your radar, and outputs a directory with HTML, JS, and other static assets required to view the radar. The generated assets can then be served as a static site.
 
-## Usage with the CLI
+## Creating a radar with JSON
 
-First, create a JSON file containing the data determining your tech radar. The JSON data should contain the title of the radar, an array of the rings you wish to use, and an array of blips on the radar. This data is validated against a [JSON schema][schema] before being processed. For example:
+First, create a JSON file containing the data behind your tech radar. This data is validated against a [JSON schema][schema] before being processed, and the blips array uses the same API as the original tech radar.
+
+The top-level JSON must contain the following properties:
+- `title` - `string` - The title of the radar, which appears in the page title and the header of the page
+- `rings` - `string[]` - An array of up to four rings in the radar, from inner-most to outer-most
+- `blips` - `blip[]` - An array of _blip_ objects determining the items appearing on the radar
+
+Each blip object must contain the following properties:
+- `name` - `string` - The name of the blip
+- `quadrant` - `string` - The quadrant of the radar that the blip appears in. There should be exactly four different quadrants in the full list of blips.
+- `ring` - `string` - The ring of the radar that the blip should appear in. This must take one of the provided ring values.
+- `isNew` - `boolean` - Set to true if the blip has been created or modified recently
+- `description` - `string` - A short description of the blip which appears when the blip is selected in the radar. This field can include HTML, and should include links to any supporting information or resources about the blip, and an explanation of why it's classified in the current ring.
+
+For example:
 
 ```json
 {
@@ -39,7 +53,9 @@ First, create a JSON file containing the data determining your tech radar. The J
 ```
 [schema]: https://github.com/dprgarner/tech-radar-generator/blob/master/schema.json
 
-Next, install this library and run the tool against the JSON data. If this tool is being incorporated into an existing JavaScript project:
+## Usage with the CLI
+
+To use this JSON data with the CLI, install the library and run it against the JSON file. If this tool is being incorporated into an existing JavaScript project:
 ```bash
 > yarn add tech-radar-generator
 > yarn tech-radar-generator ./my-radar.json ./dist
@@ -50,10 +66,10 @@ If this tool is not being incorporated into a JavaScript project, the package ca
 > npx tech-radar-generator ./my-radar.json ./dist
 ```
 
-The options for the CLI tool can be seen by running `tech-radar-generator --help`:
+The options for the CLI tool can be seen by running `npx tech-radar-generator --help`:
 
 ```bash
-> tech-radar-generator --help
+> npx tech-radar-generator --help
 radar <input> <output>
 
 Builds a tech radar

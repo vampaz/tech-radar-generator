@@ -7,20 +7,20 @@
   "properties": {
     "title": {
       "type": "string",
-      "description": "The title of the radar"
+      "description": "The title of the radar, which appears in the page title and the header of the page"
     },
     "rings": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "The names of up to four rings, ordered from centre to outside",
+      "description": "An array of up to four rings in the radar, from inner-most to outer-most",
       "minItems": 1,
       "maxItems": 4
     },
     "blips": {
       "type": "array",
-      "description": "The blips on the tech radar",
+      "description": "An array of _blip_ objects determining the items appearing on the radar",
       "items": {
         "type": "object",
         "properties": {
@@ -30,19 +30,19 @@
           },
           "quadrant": {
             "type": "string",
-            "description": "The quadrant of the radar the blip should appear in"
+            "description": "The quadrant of the radar that the blip appears in. There should be exactly four different quadrants in the full list of blips."
           },
           "ring": {
             "type": "string",
-            "description": "The ring on the radar the blip should appear in. Must take one of the provided ring values"
+            "description": "The ring of the radar that the blip should appear in. This must take one of the provided ring values."
           },
           "isNew": {
             "type": "boolean",
-            "description": "True if the blip has been created or modified recently"
+            "description": "Set to true if the blip has been created or modified recently"
           },
           "description": {
             "type": "string",
-            "description": "A short summary of the blip and why it is in the current ring"
+            "description": "A short description of the blip which appears when the blip is selected in the radar. This field can include HTML, and should include links to any supporting information or resources about the blip, and an explanation of why it's classified in the current ring."
           }
         },
         "required": ["name", "quadrant", "ring", "isNew", "description"],
