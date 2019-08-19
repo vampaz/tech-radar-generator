@@ -23,6 +23,9 @@
   "keywords": [
     "tech-radar"
   ],
+  "engines": {
+    "node": ">=8"
+  },
   "license": "AGPL-3.0",
   "devDependencies": {
     "istanbul": "^0.4.5",

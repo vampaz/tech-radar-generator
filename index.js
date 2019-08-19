@@ -1,11 +1,40 @@
+const { cloneDeep } = require('lodash')
 const webpack = require('webpack')
 const path = require('path')
 const Ajv = require('ajv')
 
 const schema = require('./schema.json')
-const config = require('./webpack.config')
+const baseConfig = require('./webpack.config')
 
 const ajv = new Ajv({ allErrors: true })
+
+/**
+ * Throw an error if the radar data is invalid
+ * @private
+ * @param {object} data The data for the radar
+ */
+function validate (data) {
+  const valid = ajv.validate(schema, data)
+  if (!valid) {
+    throw new Error(`Config did not match JSON schema: ${ajv.errorsText()}`)
+  }
+}
+
+/**
+ * A promise-generating form of Webpack
+ * @private
+ * @param {object} config The webpack config
+ * @return {Promise<void>}
+ */
+const build = (config) => new Promise((resolve, reject) => {
+  webpack(config, (err, stats) => {
+    if (err || stats.hasErrors()) {
+      reject(err || stats.toString({ colors: true }))
+    } else {
+      resolve()
+    }
+  })
+})
 
 /**
  * @typedef RadarOptions
@@ -19,29 +48,21 @@ const ajv = new Ajv({ allErrors: true })
  * @param {RadarOptions} [options] The radar options
  * @return {Promise<string>} A promise resolving to the output directory path
  */
-function techRadarGenerator (data, outputArg, { mode = 'production' } = {}) {
-  return new Promise((resolve, reject) => {
-    const valid = ajv.validate(schema, data)
-    if (!valid) {
-      const err = new Error(`Config did not match JSON schema: ${ajv.errorsText()}`)
-      return reject(err)
-    }
-    const outputPath = path.resolve(outputArg)
-    config.mode = mode
-    config.output.path = outputPath
-    const valLoader = config.module.rules.find(
-      el => el.use && el.use.loader && el.use.loader === require.resolve('val-loader')
-    )
-    valLoader.use.options.data = data
+async function techRadarGenerator (data, outputArg, { mode = 'production' } = {}) {
+  validate(data)
 
-    webpack(config, (err, stats) => {
-      if (err || stats.hasErrors()) {
-        reject(err || stats.toString({ colors: true }))
-      } else {
-        resolve(outputPath)
-      }
-    })
-  })
+  const outputPath = path.resolve(outputArg)
+  const config = cloneDeep(baseConfig)
+  config.mode = mode
+  config.output.path = outputPath
+  const valLoader = config.module.rules.find(
+    el => el.use && el.use.loader && el.use.loader === require.resolve('val-loader')
+  )
+  valLoader.use.options.data = data
+
+  await build(config)
+
+  return outputPath
 }
 
 module.exports = techRadarGenerator
