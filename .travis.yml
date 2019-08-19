@@ -10,6 +10,10 @@ jobs:
     name: Linting
     script: yarn lint
 
+  - stage: e2e-test
+    name: End-to-end Tests
+    script: yarn test:e2e
+
   - stage: deploy
     script: skip
     deploy:

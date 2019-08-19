@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "test": "istanbul cover jasmine",
+    "test:e2e": "jasmine --config=e2e.json",
     "lint": "standard",
     "format": "standard --fix"
   },
@@ -29,6 +30,7 @@
     "jsdom": "^13.1.0",
     "memory-fs": "^0.4.1",
     "standard": "^12.0.1",
+    "tmp": "^0.1.0",
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {

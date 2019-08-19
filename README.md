@@ -150,7 +150,6 @@ This library is based off of the [ThoughtWorks Build-Your-Own-Radar](https://git
 
 ## TODO
 
-- e2e tests on the CLI and entrypoint. These keep breaking and tests would stop this
 - Decide how to document Dockerfile and nginx examples. This app? A sample tech radar app? Or just leave them out?
 - Should the YAML stuff live in this library?
 - Add CSV input?
