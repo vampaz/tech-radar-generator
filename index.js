@@ -1,6 +1,7 @@
+const path = require('path')
+
 const { cloneDeep } = require('lodash')
 const webpack = require('webpack')
-const path = require('path')
 const Ajv = require('ajv')
 
 const schema = require('./schema.json')
