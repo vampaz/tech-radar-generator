@@ -8,8 +8,6 @@ A library for creating a [ThoughtWorks Tech Radar][radar] as a static site. This
 [radar]: https://www.thoughtworks.com/radar
 [byor]: https://github.com/thoughtworks/build-your-own-radar
 
-*This library is work-in-progress! Some of the features and documentation are not finalised or fully tested yet.*
-
 ## Overview
 
 A tech radar is an app for visualising trends within an area of software development. They reflect the opinions and decisions of the creators and curators of the radar, and by their nature are highly subjective. They are generally used to reflect the technology decisions and future technical directions within a company, team, or project. A more in-depth discussion of why you might want to build a Tech Radar, and the design decisions for the original ThoughtWorks tech radar, are given [here][byor-why].
@@ -24,8 +22,8 @@ First, create a JSON file containing the data behind your tech radar. This data 
 
 The top-level JSON must contain the following properties:
 - `title` - `string` - The title of the radar, which appears in the page title and the header of the page
-- `rings` - `string[]` - An array of up to four rings in the radar, from inner-most to outer-most
 - `quadrants` - `string[]` - An array of exactly four quadrant names in the radar, rendered anti-clockwise from the top-right
+- `rings` - `string[]` - An array of up to four rings in the radar, from inner-most to outer-most
 - `blips` - `blip[]` - An array of _blip_ objects determining the items appearing on the radar
 
 Each blip object must contain the following properties:
@@ -109,6 +107,58 @@ Unlike the CLI, this function takes the source data as a JavaScript object, and 
 
 - `mode`: `'development'` or `'production'` - The Webpack development mode. When set to `"production"`, the code is minified, but takes longer to process. Defaults to `"production"`.
 
+## Usage with Docker
+
+An example Dockerfile with an nginx config:
+
+
+```dockerfile
+# Dockerfile
+
+FROM node:12 as build
+WORKDIR /build
+RUN yarn global add tech-radar-generator@0.4
+COPY example-data.json /build/
+RUN tech-radar-generator example-data.json /build/dist
+
+FROM nginx:1.17.3
+WORKDIR /opt/radar
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /build/dist .
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+```nginx
+# nginx.conf
+
+# server block for static file serving
+server {
+  listen 8080;
+  location / {
+    root /opt/radar;
+    index index.html;
+  }
+
+  # custom error page for 404 errors
+  error_page 404 /error.html;
+  location = /error.html {
+    root /opt/radar;
+  }
+
+  # nginx default error page for 50x errors
+  error_page 500 502 503 504 /50x.html;
+  location = /50x.html {
+    root /usr/share/nginx/html;
+  }
+}
+```
+
+To build and run the image:
+
+```bash
+> docker build --tag my-tech-radar:0.4 .
+> docker run -p8080:8080 my-tech-radar:0.4
+```
 
 ## Developing
 
@@ -149,9 +199,3 @@ git push && git push --tags
 ## Acknowledgements
 
 This library is based off of the [ThoughtWorks Build-Your-Own-Radar](https://github.com/thoughtworks/build-your-own-radar) project.
-
-## TODO
-
-- Add CSV input
-- Decide how to document Dockerfile and nginx examples. This app? A sample tech radar app? Or just leave them out
-- Should the YAML stuff live in this library

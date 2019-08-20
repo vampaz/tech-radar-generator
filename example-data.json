@@ -1,7 +1,7 @@
 {
   "title": "Example Radar",
-  "rings": ["adopt", "trial", "assess", "hold"],
   "quadrants": ["Quad1", "Quad2", "Quad3", "Quad4"],
+  "rings": ["adopt", "trial", "assess", "hold"],
   "blips": [
     {
       "name": "Go",
