@@ -1,20 +1,21 @@
 {
   "title": "Example Radar",
   "rings": ["adopt", "trial", "assess", "hold"],
+  "quadrants": ["Quad1", "Quad2", "Quad3", "Quad4"],
   "blips": [
-    {
-      "name": "JavaScript",
-      "quadrant": "Quad1",
-      "ring": "adopt",
-      "isNew": false,
-      "description": "<p>This is a description</p><p>Formatted into paragraphs</p>"
-    },
     {
       "name": "Go",
       "quadrant": "Quad2",
       "ring": "trial",
       "isNew": true,
       "description": "This is a simple description"
+    },
+    {
+      "name": "JavaScript",
+      "quadrant": "Quad1",
+      "ring": "adopt",
+      "isNew": false,
+      "description": "<p>This is a description</p><p>Formatted into paragraphs</p>"
     },
     {
       "name": "Java",

@@ -14,8 +14,17 @@
       "items": {
         "type": "string"
       },
-      "description": "An array of up to four rings in the radar, from inner-most to outer-most",
+      "description": "An array of up to four names of rings in the radar, from inner-most to outer-most",
       "minItems": 1,
+      "maxItems": 4
+    },
+    "quadrants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "An array of exactly four quadrant names in the radar, rendered anti-clockwise from the top-right",
+      "minItems": 4,
       "maxItems": 4
     },
     "blips": {

@@ -25,6 +25,7 @@ First, create a JSON file containing the data behind your tech radar. This data 
 The top-level JSON must contain the following properties:
 - `title` - `string` - The title of the radar, which appears in the page title and the header of the page
 - `rings` - `string[]` - An array of up to four rings in the radar, from inner-most to outer-most
+- `quadrants` - `string[]` - An array of exactly four quadrant names in the radar, rendered anti-clockwise from the top-right
 - `blips` - `blip[]` - An array of _blip_ objects determining the items appearing on the radar
 
 Each blip object must contain the following properties:
@@ -34,11 +35,12 @@ Each blip object must contain the following properties:
 - `isNew` - `boolean` - Set to true if the blip has been created or modified recently
 - `description` - `string` - A short description of the blip which appears when the blip is selected in the radar. This field can include HTML, and should include links to any supporting information or resources about the blip, and an explanation of why it's classified in the current ring.
 
-For example:
+For example (with the list of blips truncated for clarity):
 
 ```json
 {
   "title": "My Radar",
+  "quadrants": ["Quad1", "Quad2", "Quad3", "Quad4"],
   "rings": ["adopt", "trial", "assess", "hold"],
   "blips": [
     {

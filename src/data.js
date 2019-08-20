@@ -4,9 +4,9 @@
  */
 
 module.exports = ({ data }) => ({ code: `
-const { title, rings, blips: blipsJson } = ${JSON.stringify(data)}
+const { title, rings, blips, quadrants } = ${JSON.stringify(data)}
 
-blipsJson.forEach(blip => { blip.isNew = blip.isNew + '' })
+blips.forEach(blip => { blip.isNew = blip.isNew + '' })
 
-module.exports = { title, rings, blipsJson }
+module.exports = { title, rings, blips, quadrants }
 ` })

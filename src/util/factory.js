@@ -18,12 +18,10 @@ const GraphingRadar = require('../graphing/radar')
 const MalformedDataError = require('../exceptions/malformedDataError')
 const ExceptionMessages = require('./exceptionMessages')
 
-const { blipsJson, rings, title: radarTitle } = require('../data')
+const { blips: rawBlips, quadrants: quadrantsOrder, rings, title } = require('../data')
+const blips = _.map(rawBlips, new InputSanitizer().sanitize)
 
-const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
-  if (title.endsWith('.csv')) {
-    title = title.substring(0, title.length - 4)
-  }
+function plotRadar () {
   document.title = title
   d3.selectAll('.loading').remove()
 
@@ -47,29 +45,20 @@ const plotRadar = function (title, blips, currentRadarName, alternativeRadars) {
   })
 
   var radar = new Radar()
-  _.each(quadrants, function (quadrant) {
-    radar.addQuadrant(quadrant)
+  _.each(quadrantsOrder, function (quadrant) {
+    if (quadrants[quadrant]) {
+      radar.addQuadrant(quadrants[quadrant])
+    }
   })
-
-  if (alternativeRadars !== undefined || true) {
-    alternativeRadars.forEach(function (sheetName) {
-      radar.addAlternative(sheetName)
-    })
-  }
-
-  if (currentRadarName !== undefined || true) {
-    radar.setCurrentSheet(currentRadarName)
-  }
 
   var size = (window.innerHeight - 133) < 620 ? 620 : window.innerHeight - 133
 
   new GraphingRadar(size, radar).init().plot()
 }
 
-const YamlInput = function () {
+const SafePlotRadar = function () {
   try {
-    var blips = _.map(blipsJson, new InputSanitizer().sanitize)
-    plotRadar(radarTitle, blips, 'CSV File', [])
+    plotRadar()
   } catch (exception) {
     plotErrorMessage(exception)
   }
@@ -112,4 +101,4 @@ function plotErrorMessage (exception) {
     .html(homePage)
 }
 
-module.exports = YamlInput
+module.exports = SafePlotRadar
