@@ -109,7 +109,7 @@ module.exports = {
         use: {
           loader: require.resolve('val-loader'),
           options: {
-            // This is only used by webpack-dev-server, and is overridden in main.js
+            // This is only used by webpack-dev-server, and is overridden in index.js
             data: require('./example-data.json')
           }
         }
