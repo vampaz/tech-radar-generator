@@ -47,7 +47,6 @@ module.exports = {
 
   output: {
     // Output path is set in main.js
-    publicPath: '/',
     filename: '[name].[hash].js'
   },
 
