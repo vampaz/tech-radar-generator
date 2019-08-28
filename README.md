@@ -14,11 +14,13 @@ A tech radar is an app for visualising trends within an area of software develop
 
 [byor-why]: https://www.thoughtworks.com/insights/blog/build-your-own-technology-radar
 
-This library is a tool for generating your own custom tech radar. The library provides a CLI script which takes in as input a JSON file containing the data behind your radar, and outputs a directory with HTML, JS, and other static assets required to view the radar. The generated assets can then be served as a static site.
+This library is a tool for generating your own custom tech radar. The library provides a CLI script and a Node API which takes in as input a JSON file containing the data behind your radar, and outputs a directory with HTML, JS, and other static assets required to view the radar. The generated assets can then be served as a static site.
 
 ## Creating a radar with JSON
 
 First, create a JSON file containing the data behind your tech radar. This data is validated against a [JSON schema][schema] before being processed, and the blips array uses the same API as the original tech radar.
+
+[schema]: https://github.com/dprgarner/tech-radar-generator/blob/master/schema.json
 
 The top-level JSON must contain the following properties:
 - `title` - `string` - The title of the radar, which appears in the page title and the header of the page
@@ -33,7 +35,7 @@ Each blip object must contain the following properties:
 - `isNew` - `boolean` - Set to true if the blip has been created or modified recently
 - `description` - `string` - A short description of the blip which appears when the blip is selected in the radar. This field can include HTML, and should include links to any supporting information or resources about the blip, and an explanation of why it's classified in the current ring.
 
-For example (with the list of blips truncated for clarity):
+For example:
 
 ```json
 {
@@ -42,16 +44,36 @@ For example (with the list of blips truncated for clarity):
   "rings": ["adopt", "trial", "assess", "hold"],
   "blips": [
     {
-      "name": "JSF",
-      "quadrant": "Languages & Frameworks",
+      "name": "JavaScript",
+      "quadrant": "Quad1",
+      "ring": "adopt",
+      "isNew": false,
+      "description": "<p>This is a description</p><p>Formatted into paragraphs</p>"
+    },
+    {
+      "name": "Go",
+      "quadrant": "Quad2",
+      "ring": "trial",
+      "isNew": true,
+      "description": "This is a simple description"
+    },
+    {
+      "name": "Java",
+      "quadrant": "Quad3",
+      "ring": "assess",
+      "isNew": false,
+      "description": "This is a <a href=\"/\">description</a><br /><br />Spanning several lines."
+    },
+    {
+      "name": "C++",
+      "quadrant": "Quad4",
       "ring": "hold",
       "isNew": false,
-      "description": "We continue to see teams run into trouble using JSF ..."
+      "description": "This is another simple description"
     }
   ]
 }
 ```
-[schema]: https://github.com/dprgarner/tech-radar-generator/blob/master/schema.json
 
 ## Usage with the CLI
 
@@ -70,7 +92,7 @@ The options for the CLI tool can be seen by running `npx tech-radar-generator --
 
 ```bash
 > npx tech-radar-generator --help
-radar <input> <output>
+tech-radar-generator <input> <output>
 
 Builds a tech radar
 

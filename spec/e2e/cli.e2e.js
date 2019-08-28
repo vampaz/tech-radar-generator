@@ -18,7 +18,7 @@ describe('CLI end-to-end', () => {
   })
 
   it('bundles to a directory', () => {
-    const stdout = childProcess.execFileSync('./bin/radar', [
+    const stdout = childProcess.execFileSync('./bin/tech-radar-generator', [
       './example-data.json',
       tmpDir.name,
       '-d'
@@ -35,7 +35,7 @@ describe('CLI end-to-end', () => {
   it('fails when the input file is missing', () => {
     let failed = false
     try {
-      childProcess.execFileSync('./bin/radar', [
+      childProcess.execFileSync('./bin/tech-radar-generator', [
         './does-not-exist.json',
         tmpDir.name,
         '-d'
