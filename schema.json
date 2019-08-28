@@ -59,6 +59,6 @@
       }
     }
   },
-  "required": ["title", "rings", "blips"],
+  "required": ["title", "quadrants", "rings", "blips"],
   "additionalProperties": false
 }
