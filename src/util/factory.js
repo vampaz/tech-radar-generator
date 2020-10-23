@@ -53,7 +53,7 @@ function plotRadar () {
 
   function plot () {
     document.querySelectorAll('body > :not(script)').forEach((item) => item.remove())
-    var size = (window.innerWidth - 133) < 620 ? 620 : (80 / 100) * window.innerWidth
+    var size = window.innerWidth > window.innerHeight ? (80 / 100) * window.innerHeight : (80 / 100) * window.innerWidth
     new GraphingRadar(size, radar).init().plot()
   }
 
