@@ -357,23 +357,23 @@ const Radar = function (size, radar) {
       .transition()
       .style('visibility', 'visible')
 
-    triangleLegend(x, y, container)
-
-    container
-      .append('text')
-      .attr('x', x + 15)
-      .attr('y', y + 5)
-      .attr('font-size', '0.8em')
-      .text(triangleKey)
-
-    circleLegend(x, y + 20, container)
-
-    container
-      .append('text')
-      .attr('x', x + 15)
-      .attr('y', y + 25)
-      .attr('font-size', '0.8em')
-      .text(circleKey)
+    // triangleLegend(x, y, container)
+    //
+    // container
+    //   .append('text')
+    //   .attr('x', x + 15)
+    //   .attr('y', y + 5)
+    //   .attr('font-size', '0.8em')
+    //   .text(triangleKey)
+    //
+    // circleLegend(x, y + 20, container)
+    //
+    // container
+    //   .append('text')
+    //   .attr('x', x + 15)
+    //   .attr('y', y + 25)
+    //   .attr('font-size', '0.8em')
+    //   .text(circleKey)
   }
 
   function redrawFullRadar () {
@@ -432,7 +432,7 @@ const Radar = function (size, radar) {
   }
 
   function plotRadarHeader () {
-    header = d3.select('body').insert('header', '#radar')
+    header = d3.select('#radar').insert('header', '#radar')
 
     buttonsGroup = header.append('div')
       .classed('buttons-group', true)
@@ -501,7 +501,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    var scale = 1.5
+    var scale = 1.3
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
@@ -601,7 +601,7 @@ const Radar = function (size, radar) {
 
     plotQuadrantButtons(quadrants, header)
 
-    // radarElement.style('height', size + 14 + 'px')
+    radarElement.style('height', size + 14 + 'px')
     svg = radarElement.append('svg').call(tip)
     svg.attr('id', 'radar-plot').attr('width', size).attr('height', size + 14)
 
