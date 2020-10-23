@@ -51,15 +51,15 @@ function plotRadar () {
     }
   })
 
-  function plot(){
-    document.querySelectorAll("body > :not(script)").forEach((item)=>item.remove())
+  function plot () {
+    document.querySelectorAll('body > :not(script)').forEach((item) => item.remove())
     var size = (window.innerWidth - 133) < 620 ? 620 : (80 / 100) * window.innerWidth
     new GraphingRadar(size, radar).init().plot()
   }
 
-  plot();
+  plot()
 
-  window.addEventListener('resize', plot);
+  window.addEventListener('resize', plot)
 }
 
 const SafePlotRadar = function () {

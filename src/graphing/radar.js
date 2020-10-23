@@ -432,7 +432,7 @@ const Radar = function (size, radar) {
   }
 
   function plotRadarHeader () {
-    header = d3.select('#radar').insert('header', '#radar')
+    header = d3.select('body').insert('header', '#radar')
 
     buttonsGroup = header.append('div')
       .classed('buttons-group', true)
