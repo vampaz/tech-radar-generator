@@ -1,35 +1,1179 @@
 {
-  "title": "Example Radar",
-  "quadrants": ["Quad1", "Quad2", "Quad3", "Quad4"],
-  "rings": ["adopt", "trial", "assess", "hold"],
+  "title": "Everon Tech radar",
+  "quadrants": [
+    "Languages and Frameworks",
+    "Techniques",
+    "Tools",
+    "Platforms"
+  ],
+  "rings": [
+    "ADOPT",
+    "TRIAL",
+    "ASSESS",
+    "HOLD"
+  ],
   "blips": [
     {
-      "name": "Go",
-      "quadrant": "Quad2",
-      "ring": "trial",
-      "isNew": true,
-      "description": "This is a simple description"
+      "description" : "Used by <i>Schumis</i>.<br/><br/>The Adyen API Library for Java enables you to work with Adyen APIs and Hosted Payment Pages.",
+      "ring" : "ADOPT",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Adyen library",
+      "isNew" : false
     },
     {
-      "name": "JavaScript",
-      "quadrant": "Quad1",
-      "ring": "adopt",
-      "isNew": false,
-      "description": "<p>This is a description</p><p>Formatted into paragraphs</p>"
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Angular.js",
+      "isNew" : false,
+      "ring" : "HOLD",
+      "description" : "Used by <i>Tenant Portal, Black Hole</i>.<br/><br/>AngularJS is a toolset for building the framework most suited to your application development. It is fully extensible and works well with other libraries. Every feature can be modified or replaced to suit your unique development workflow and feature needs. Read on to find out how."
     },
     {
-      "name": "Java",
-      "quadrant": "Quad3",
-      "ring": "assess",
-      "isNew": false,
-      "description": "This is a <a href=\"/\">description</a><br /><br />Spanning several lines."
+      "name" : "Apache HTTP Client 4",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>https://hc.apache.org/httpcomponents-client-ga/"
     },
     {
-      "name": "C++",
-      "quadrant": "Quad4",
-      "ring": "hold",
-      "isNew": false,
-      "description": "This is another simple description"
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Apache Shiro",
+      "isNew" : false,
+      "description" : "Used by <i>Moonsters, Sputnik</i>.<br/><br/>Apache Shiro is an open source software security framework that performs authentication, authorization, cryptography and session management. Shiro has been designed to be an intuitive and easy-to-use framework while still providing robust security features.",
+      "ring" : "HOLD"
+    },
+    {
+      "isNew" : false,
+      "name" : "ArchUnit",
+      "quadrant" : "Languages and Frameworks",
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>ArchUnit is a free, simple and extensible library for checking the architecture of your Java code."
+    },
+    {
+      "quadrant" : "Languages and Frameworks",
+      "name" : "AssertJ",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>AssertJ is a java library providing a rich set of assertions, truly helpful error messages, improves test code readability and is designed to be super easy to use within your favorite IDE."
+    },
+    {
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Bascss",
+      "isNew" : false,
+      "ring" : "HOLD",
+      "description" : "Used by <i>Tenant Portal, Black Hole</i>.<br/><br/>Basscss is a lightweight collection of base element styles and immutable utilities designed for speed, clarity, performance, and scalability."
+    },
+    {
+      "name" : "Bash",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>42, Rocket</i>.<br/><br/>Well, bash, you know."
+    },
+    {
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Carthage is intended to be the simplest way to add frameworks to your Cocoa application.",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Carthage"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Commons CSV reads and writes files in variations of the Comma Separated Value (CSV) format.",
+      "isNew" : false,
+      "name" : "Common-csv",
+      "quadrant" : "Languages and Frameworks"
+    },
+    {
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Feign makes writing java http clients easier",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Feign"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "GCP SDK",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik, Moonsters</i>.<br/><br/>Tools and libraries for interacting with Google Cloud products and services."
+    },
+    {
+      "description" : "Used by <i>42</i>.<br/><br/>Go is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson. Go is syntactically similar to C, but with memory safety, garbage collection, structural typing, and CSP-style concurrency.",
+      "ring" : "ADOPT",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Golang",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Google Address Validation",
+      "quadrant" : "Languages and Frameworks",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>?"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "GraphQL",
+      "ring" : "ASSESS",
+      "description" : "Used by <i>42</i>.<br/><br/>GraphQL is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. "
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Groovy",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Apache Groovy is a Java-syntax-compatible object-oriented programming language for the Java platform. ",
+      "ring" : "ADOPT"
+    },
+    {
+      "name" : "Guava",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik,Sputnik</i>.<br/><br/>Google Guava is an open-source set of common libraries for Java, mainly developed by Google engineers.",
+      "ring" : "HOLD"
+    },
+    {
+      "description" : "Used by <i>Sputnik, Moonsters, Orion</i>.<br/><br/>Google Guice (pronounced \"juice\") is an open-source software framework for the Java platform released by Google under the Apache License. It provides support for dependency injection using annotations to configure Java objects",
+      "ring" : "HOLD",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Guice"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Junit Matchers that can be combined to create flexible expressions of intent",
+      "ring" : "ADOPT",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Hamcrest",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Hibernate Bean Validation",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Hibernate Validator allows to express and validate application constraints. The default metadata source are annotations, with the ability to override and extend through the use of XML. ",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sirius, Sputnik, Perseus</i>.<br/><br/>Hibernate ORM enables developers to more easily write applications whose data outlives the application process. As an Object/Relational Mapping (ORM) framework, Hibernate is concerned with data persistence as it applies to relational databases (via JDBC).",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Hibernate ORM",
+      "quadrant" : "Languages and Frameworks"
+    },
+    {
+      "isNew" : false,
+      "name" : "HikariCP",
+      "quadrant" : "Languages and Frameworks",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>HikariCP is a \"zero-overhead\" production ready JDBC connection pool. ",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Jackson is a high-performance JSON processor for Java.",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Jackson"
+    },
+    {
+      "name" : "Java 11",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "description" : "Used by <i>Orion, Sirius, Hubble, Ozone, Sputnik, Perseus</i>.<br/><br/>https://openjdk.java.net/projects/jdk/11/",
+      "ring" : "ADOPT"
+    },
+    {
+      "name" : "Java 8",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "ring" : "HOLD",
+      "description" : "Used by <i>Sputnik, Ozone</i>.<br/><br/>https://www.oracle.com/java/technologies/java8.html"
+    },
+    {
+      "description" : "Used by <i>Black Hole</i>.<br/><br/>JavaScript is the best, often abbreviated as JS, is a programming language that conforms to the ECMAScript specification. JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has curly-bracket syntax, dynamic typing, prototype-based object-orientation, and first-class functions.",
+      "ring" : "ADOPT",
+      "name" : "JavaScript",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Moonsters</i>.<br/><br/>Jakarta RESTful Web Services, is a Jakarta EE API specification that provides support in creating web services according to the Representational State Transfer architectural pattern. JAX-RS uses annotations, introduced in Java SE 5, to simplify the development and deployment of web service clients and endpoints.",
+      "ring" : "HOLD",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Jax-rs"
+    },
+    {
+      "name" : "Jersey",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik, Moonsters, Orion</i>.<br/><br/>Jersey RESTful Web Services, formerly Glassfish Jersey, currently Eclipse Jersey framework is an open source framework for developing RESTful Web Services in Java. It provides support for JAX-RS APIs and serves as a JAX-RS Reference Implementation.",
+      "ring" : "HOLD"
+    },
+    {
+      "description" : "Used by <i>Black Hole</i>.<br/><br/>Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase. ",
+      "ring" : "ADOPT",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Jest",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Black Hole</i>.<br/><br/>Jolt is a collection of Vuejs components, service and styles meant to be used in every Everon web app.",
+      "ring" : "ADOPT",
+      "name" : "Jolt",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Sputink,Sputnik</i>.<br/><br/>JUnit is a unit testing framework for the Java programming language. ",
+      "ring" : "HOLD",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Junit 4",
+      "isNew" : false
+    },
+    {
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Junit 5",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>JUnit 5 is the next generation of JUnit.",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "name" : "Kotlin",
+      "quadrant" : "Languages and Frameworks",
+      "description" : "Used by <i>Orion, Kotlin</i>.<br/><br/>Kotlin is a cross-platform, statically typed, general-purpose programming language with type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard library depends on the Java Class Library, but type inference allows its syntax to be more concise. ",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Black Hole</i>.<br/><br/>A modern JavaScript utility library delivering modularity, performance & extras.",
+      "ring" : "HOLD",
+      "name" : "Lodash",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Logback",
+      "quadrant" : "Languages and Frameworks",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik, Moonsters</i>.<br/><br/>Logback is intended as a successor to the popular log4j project, picking up where log4j leaves off."
+    },
+    {
+      "isNew" : false,
+      "name" : "Lombok",
+      "quadrant" : "Languages and Frameworks",
+      "description" : "Used by <i>Orion, Sirius, Hubble, Sputnik, Moonsters, Rocket</i>.<br/><br/>https://projectlombok.org/",
+      "ring" : "ADOPT"
+    },
+    {
+      "quadrant" : "Languages and Frameworks",
+      "name" : "MapStruct",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sirius, Moonsters, Rocket, Perseus, Sputnik</i>.<br/><br/>MapStruct is a code generator that greatly simplifies the implementation of mappings between Java bean types based on a convention over configuration approach. The generated mapping code uses plain method invocations and thus is fast, type-safe and easy to understand."
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Micrometer provides a simple facade over the instrumentation clients for the most popular monitoring systems, allowing you to instrument your JVM-based application code without vendor lock-in. Think SLF4J, but for metrics.",
+      "ring" : "ADOPT",
+      "name" : "Micrometer",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Mockito",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Mockito is an open source testing framework for Java released under the MIT License. The framework allows the creation of test double objects in automated unit tests for the purpose of test-driven development or behavior-driven development."
+    },
+    {
+      "name" : "MockServer",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>MockServer enables easy mocking of any system you integrate with via HTTP or HTTPS with clients written in Java, JavaScript and Ruby. MockServer also includes a proxy that introspects all proxied traffic including encrypted SSL traffic and supports Port Forwarding, Web Proxying (i.e. HTTP proxy), HTTPS Tunneling Proxying (using HTTP CONNECT), etc."
+    },
+    {
+      "description" : "Used by <i>Orion,Rocket</i>.<br/><br/>ModelMapper is an intelligent, refactoring safe object mapping library that automatically maps objects to each other.",
+      "ring" : "HOLD",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "ModelMapper",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "OKTA SDK",
+      "quadrant" : "Languages and Frameworks",
+      "description" : "Used by <i>Rocket, Schumis</i>.<br/><br/>The Okta Auth SDK builds on top of our Authentication API and OpenID Connect API to enable you to create a fully branded sign-in experience using JavaScript.",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>OpenCensus is a set of libraries for various languages that allow you to collect application metrics and distributed traces, then transfer the data to a backend of your choice in real time.",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "OpenCensus"
+    },
+    {
+      "isNew" : false,
+      "name" : "Postgres Spatial Extension",
+      "quadrant" : "Languages and Frameworks",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>PostGIS is an open source software program that adds support for geographic objects to the PostgreSQL object-relational database. PostGIS follows the Simple Features for SQL specification from the Open Geospatial Consortium. Technically PostGIS was implemented as a PostgreSQL external extension.",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Puppeteer",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Moonsters</i>.<br/><br/>Puppeteer is a Node library which provides a high-level API to control headless Chrome or Chromium over the DevTools Protocol. It can also be configured to use full (non-headless) Chrome or Chromium."
+    },
+    {
+      "description" : "Used by <i>42, Rocket</i>.<br/><br/>Python is an interpreted, high-level and general-purpose programming language.",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Python"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Quartz is a job scheduling library that can be integrated into a wide variety of Java applications.",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Quartz"
+    },
+    {
+      "description" : "Used by <i>Sirius, Sputnik</i>.<br/><br/>Java DSL for easy testing of REST services",
+      "ring" : "ADOPT",
+      "name" : "RestAssured",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Simple Logging Facade for Java provides a Java logging API by means of a simple facade pattern. The underlying logging backend is determined at runtime by adding the desired binding to the classpath and may be the standard Sun Java logging package java.util.logging, log4j, logback or tinylog.",
+      "ring" : "ADOPT",
+      "name" : "SLF4j",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, Sirius, Hubble, Sputnik, Perseus, Moonsters, Rocket, Ozone</i>.<br/><br/>Spring Boot is an open source Java-based framework used to create a micro Service. It is developed by Pivotal Team and is used to build stand-alone and production ready spring applications.",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Spring Boot",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Moonsters</i>.<br/><br/>Spring Data JPA, part of the larger Spring Data family, makes it easy to easily implement JPA based repositories.",
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Spring Data JPA",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Spring DI",
+      "description" : "Used by <i>Moonsters</i>.<br/><br/>Spring an application framework and inversion of control container for the Java platform.",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>https://spring.io/reactive",
+      "ring" : "HOLD",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Spring Reactor"
+    },
+    {
+      "description" : "Used by <i>Moonsters</i>.<br/><br/>Spring Security is a Java/Java EE framework that provides authentication, authorization and other security features for enterprise applications.",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Spring Security",
+      "quadrant" : "Languages and Frameworks"
+    },
+    {
+      "isNew" : false,
+      "name" : "Spring Test",
+      "quadrant" : "Languages and Frameworks",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Spring support classes for writing unit tests and integration tests"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Moonsters</i>.<br/><br/>Spring Web an HTTP- and servlet-based framework providing hooks for extension and customization for web applications and RESTful (representational state transfer) Web services.",
+      "isNew" : false,
+      "name" : "Spring Web",
+      "quadrant" : "Languages and Frameworks"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Hubble, 42</i>.<br/><br/>SQL is a domain-specific language used in programming and designed for managing data held in a relational database management system (RDBMS)",
+      "name" : "SQL",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Swift",
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Swift is a general-purpose, multi-paradigm, compiled programming language developed by Apple Inc.",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Shumis</i>.<br/><br/>SwiftUI provides views, controls, and layout structures for declaring your app’s user interface.",
+      "ring" : "ASSESS",
+      "name" : "Swift UI",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Tailwind",
+      "quadrant" : "Languages and Frameworks",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Black Hole, Tenant Portal</i>.<br/><br/>A utility-first CSS framework for rapidly building custom designs."
+    },
+    {
+      "description" : "Used by <i>Black Hole, Tenant Portal</i>.<br/><br/>Vue.js is an open-source model–view–viewmodel front end JavaScript framework for building user interfaces and single-page applications",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Vue.js"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Vuex",
+      "description" : "Used by <i>Black Hole, Tenant Portal</i>.<br/><br/>Vuex is a state management pattern + library for Vue.js applications",
+      "ring" : "ADOPT"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Black Hole, Tenant Portal</i>.<br/><br/>Vue Router is the official router for Vue.js. It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze. Features include:",
+      "name" : "Vue router",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Sirius</i>.<br/><br/>WireMock is a flexible API mocking tool for fast, robust and comprehensive testing",
+      "ring" : "ADOPT",
+      "name" : "Wiremock",
+      "quadrant" : "Languages and Frameworks",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Languages and Frameworks",
+      "name" : "Zipkin",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Zipkin is a distributed tracing system. It helps gather timing data needed to troubleshoot latency problems in service architectures.",
+      "ring" : "TRIAL"
+    },
+    {
+      "ring" : "ASSESS",
+      "description" : "Used by <i>42</i>.<br/><br/>Anthos is a modern application management platform that provides a consistent development and operations experience for cloud and on-premises environments. (read more: https://cloud.google.com/anthos/docs)",
+      "name" : "Anthos",
+      "quadrant" : "Platforms",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik,Sirius, Schumis,Ozone, 42, Moonsters</i>.<br/><br/>Apigee is a platform for developing and managing APIs. By fronting services with a proxy layer, Apigee provides an abstraction or facade for your backend service APIs and provides security, rate limiting, quotas, analytics, and more. (read more: https://cloud.google.com/apigee/docs)",
+      "quadrant" : "Platforms",
+      "name" : "Apigee",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>42</i>.<br/><br/>Cloudflare is a web-infrastructure and website-security company, providing content-delivery-network services, DDoS mitigation, Internet security, and distributed domain-name-server services. Cloudflare's services sit between a website's visitor and the Cloudflare user's hosting provider, acting as a reverse proxy for websites.(read more: https://developers.cloudflare.com/docs/)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Cloudflare",
+      "quadrant" : "Platforms"
+    },
+    {
+      "ring" : "HOLD",
+      "description" : "Used by <i>42,Moonsters</i>.<br/><br/>Dataflow is a cloud-based data processing service for both batch and real-time data streaming applications. It enables developers to set up processing pipelines for integrating, preparing and analyzing large data sets, such as those found in Web analytics or big data analytics applications. (read more: https://cloud.google.com/dataflow/docs)",
+      "quadrant" : "Platforms",
+      "name" : "Dataflow",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, 42, Moonsters</i>.<br/><br/>Datastore is a highly scalable NoSQL database for applications which automatically handles sharding and replication, providing you with a highly available and durable database that scales automatically to handle your applications' load. Datastore provides a myriad of capabilities such as ACID transactions, SQL-like queries, indexes, and much more. (read more: https://cloud.google.com/datastore/docs/concepts/overview)",
+      "quadrant" : "Platforms",
+      "name" : "DataStore",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>42</i>.<br/><br/>Docker Hub is a service provided by Docker for finding and sharing container images. (read more: https://docs.docker.com/docker-hub/)",
+      "quadrant" : "Platforms",
+      "name" : "Docker Hub",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, 42</i>.<br/><br/>Elastic Cloud is a platform which makes it easy to deploy, operate, and scale the elastic stack in the cloud. (read more: https://www.elastic.co/guide/en/cloud/current/index.html)",
+      "name" : "Elastic Cloud Platform",
+      "quadrant" : "Platforms",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Firebase is a platform developed by Google for creating mobile and web applications. ",
+      "ring" : "ADOPT",
+      "quadrant" : "Platforms",
+      "name" : "Firebase",
+      "isNew" : false
+    },
+    {
+      "name" : "GCP - Cloud Tasks",
+      "quadrant" : "Platforms",
+      "isNew" : false,
+      "ring" : "ASSESS",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Cloud Tasks is a fully managed service that allows managing the execution, dispatch and delivery of a large number of distributed tasks. (read more: https://cloud.google.com/tasks/docs)"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, Sirius, 42, Tenant Portal, Moonsters, Rocket</i>.<br/><br/>Google Cloud Platform, offered by Google, is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search, Gmail, file storage, and YouTube.",
+      "quadrant" : "Platforms",
+      "name" : "GCP (do we want to expand this?)",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, Sputnik</i>.<br/><br/>Google Kubernetes Engine (GKE) provides a managed environment for deploying, managing, and scaling containerized applications using Google infrastructure. The GKE environment consists of multiple machines (specifically, Compute Engine instances) grouped together to form a cluster.",
+      "quadrant" : "Platforms",
+      "name" : "GKE",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Container Registry provides secure, private Docker image storage on Google Cloud Platform.",
+      "ring" : "HOLD",
+      "isNew" : false,
+      "name" : "Google Docker Registry ",
+      "quadrant" : "Platforms"
+    },
+    {
+      "ring" : "HOLD",
+      "description" : "Used by <i>42</i>.<br/><br/>Istio is an open source independent service mesh that provides the fundamentals needed to successfully run a distributed microservice architecture. Istio reduces complexity of managing microservice deployments by providing a uniform way to secure, connect, and monitor microservices. (read more: https://istio.io/latest/docs/concepts/what-is-istio/)",
+      "isNew" : false,
+      "name" : "Istio",
+      "quadrant" : "Platforms"
+    },
+    {
+      "ring" : "HOLD",
+      "description" : "Used by <i>Everon?</i>.<br/><br/>The JFrog Container Registry is a repository manager, which supports Docker and Helm registries and Generic repositories, allowing you to build, deploy and manage your container images while providing powerful features with fine-grained permission control behind a sleek and easy-to-use UI. (read more: https://www.jfrog.com/confluence/display/JFROG/JFrog+Container+Registry)",
+      "name" : "Jfrog: Docker Registry",
+      "quadrant" : "Platforms",
+      "isNew" : false
+    },
+    {
+      "name" : "Jfrog:NPM Registry",
+      "quadrant" : "Platforms",
+      "isNew" : false,
+      "description" : "Used by <i>Black Hole, Tenant Portal</i>.<br/><br/>A private NPM registry. (read more: https://www.jfrog.com/confluence/display/JFROG/npm+Registry)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>42, Moonsters</i>.<br/><br/>Kubernetes is an open-source container-orchestration system for automating computer application deployment, scaling, and management.",
+      "ring" : "ADOPT",
+      "quadrant" : "Platforms",
+      "name" : "K8s",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Platforms",
+      "name" : "Lilt",
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Lilt builds intelligent software to automate business translation, consisting of a workflow engine for enterprise localization, and the world's first adaptive neural machine translation system. ",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Orion</i>.<br/><br/>Memorystore is a managed solution in GCP which automates complex tasks for open source Redis and Memcached like enabling high availability, failover, patching, and monitoring so you can spend more time coding.",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "MemoryStore",
+      "quadrant" : "Platforms"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>MongoDB Atlas is the global cloud database service for modern applications, allowing you to deploy fully managed MongoDB across AWS, Azure, or GCP. Best-in-class automation and proven practices guarantee availability, scalability, and compliance with the most demanding data security and privacy standards.",
+      "ring" : "TRIAL",
+      "quadrant" : "Platforms",
+      "name" : "MongoDB Atlas",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>42, Moonsters, Perseus</i>.<br/><br/>Cloud SQL for MySQL is a fully-managed database service that helps you set up, maintain, manage, and administer your MySQL relational databases on Google Cloud Platform.",
+      "ring" : "HOLD",
+      "quadrant" : "Platforms",
+      "name" : "MySQL on Cloud SQL",
+      "isNew" : false
+    },
+    {
+      "name" : "NodeJS",
+      "quadrant" : "Platforms",
+      "isNew" : false,
+      "description" : "Used by <i>42,Black Hole, Tenant Portal,Moonsters</i>.<br/><br/>Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "name" : "PostgreSQL on Cloud SQL",
+      "quadrant" : "Platforms",
+      "description" : "Used by <i>Orion, 42, Sputnik, Moonsters</i>.<br/><br/>Cloud SQL for PostgreSQL is a fully-managed database service that helps you set up, maintain, manage, and administer your PostgreSQL relational databases on Google Cloud Platform. (read more: https://cloud.google.com/sql/docs/postgres/concepts)",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Platforms",
+      "name" : "PubSub",
+      "description" : "Used by <i>Orion, 42,Sputnik, Hubble</i>.<br/><br/>Pub/Sub is an asynchronous messaging service that decouples services that produce events from services that process events. (read more: https://cloud.google.com/pubsub/docs/concepts)",
+      "ring" : "ADOPT"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion</i>.<br/><br/>Redis is an in-memory data structure project implementing a distributed, in-memory key–value database with optional durability. (read more: https://redis.io/documentation)",
+      "isNew" : false,
+      "quadrant" : "Platforms",
+      "name" : "Redis"
+    },
+    {
+      "description" : "Used by <i>Moonsters, Rocket (2?)</i>.<br/><br/>SendGrid provides a cloud-based service that assists businesses with email delivery. The service manages various types of email including shipping notifications, friend requests, sign-up confirmations, and email newsletters. It also handles internet service provider (ISP) monitoring, domain keys, sender policy framework (SPF), and feedback loops. (read more: https://sendgrid.com/docs/)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "SendGrid",
+      "quadrant" : "Platforms"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "ADRs",
+      "description" : "Used by <i>Sirius, Everon, some other teams</i>.<br/><br/>An Architectural Decision (AD) is a software design choice that addresses a functional or non-functional requirement that is architecturally significant. https://bitbucket.org/evbox/everon/src/master/architecture/docs/adrs/ADR-0001-adr-should-be-used.md https://adr.github.io/",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sirius, Sputnik, Everon</i>.<br/><br/>The C4 model was created as a way to help software development teams describe and communicate software architecture, both during up-front design sessions and when retrospectively documenting an existing codebase. It's a way to create maps of your code, at various levels of detail, in the same way you would use something like Google Maps to zoom in .and out of an area you are interested in. https://bitbucket.org/evbox/everon/src/master/architecture/docs/adrs/ADR-0004-diagram-standard-and-tools.md , more to read: https://c4model.com/",
+      "ring" : "ADOPT",
+      "quadrant" : "Techniques",
+      "name" : "C4 diagrams",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Canary deployments release",
+      "description" : "Used by <i>42</i>.<br/><br/>Canary release is a technique to reduce the risk of introducing a new software version in production by slowly rolling out the change to a small subset of users before rolling it out to the entire infrastructure and making it available to everybody. https://martinfowler.com/bliki/CanaryRelease.html",
+      "ring" : "ASSESS"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "CI/CD",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Continuous Integration is a software development practice where members of a team integrate their work frequently, usually each person integrates at least daily - leading to multiple integrations per day. Continuous Delivery is a software development discipline where you build software in such a way that the software can be released to production at any time. https://martinfowler.com/articles/continuousIntegration.html https://www.martinfowler.com/bliki/ContinuousDelivery.html",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Code reviews",
+      "description" : "Used by <i>Rocket</i>.<br/><br/>Code review (sometimes referred to as peer review) is a software quality assurance activity in which one or several people check a program mainly by viewing and reading parts of its source code, and they do so after implementation or as an interruption of implementation. At least one of the persons must not be the code's author. The persons performing the checking, excluding the author, are called \"reviewers\" https://en.wikipedia.org/wiki/Code_review",
+      "ring" : "ADOPT"
+    },
+    {
+      "quadrant" : "Techniques",
+      "name" : "Contract testing (Consumer-driven-contracts, CDCTs)",
+      "isNew" : false,
+      "description" : "Used by <i>Moonsters, Sputnik, Sirius</i>.<br/><br/>Contract testing is a methodology for ensuring that two separate systems (such as two microservices) are compatible with one other. It captures the interactions that are exchanged between each service, storing them in a contract, which can then be used to verify that both parties adhere to it., https://pactflow.io/blog/what-is-contract-testing/ https://www.martinfowler.com/bliki/ContractTest.html https://www.martinfowler.com/articles/consumerDrivenContracts.html",
+      "ring" : "TRIAL"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "DevOps",
+      "description" : "Used by <i>42</i>.<br/><br/>Agile software development has broken down some of the silos between requirements analysis, testing and development. Deployment, operations and maintenance are other activities which have suffered a similar separation from the rest of the software development process. The DevOps movement is aimed at removing these silos and encouraging collaboration between development and operations https://martinfowler.com/bliki/DevOpsCulture.html",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "name" : "Documentation as code",
+      "quadrant" : "Techniques",
+      "description" : "Used by <i>Moonsters, Sputnik</i>.<br/><br/>Documentation as Code (Docs as Code) refers to a philosophy that you should be writing documentation with the same tools as code: Issue Trackers. Version Control (Git) Plain Text Markup (Markdown, reStructuredText, Asciidoc) https://docs-as-co.de/",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Event storming",
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Event storming is a workshop-based method to quickly find out what is happening in the domain of a software program. Compared to other methods it is extremely lightweight and intentionally requires no support by a computer. The result is expressed in sticky notes on a wide wall. https://www.eventstorming.com/"
+    },
+    {
+      "name" : "Git flow",
+      "quadrant" : "Techniques",
+      "isNew" : false,
+      "description" : "Used by <i>Schumis</i>.<br/><br/>GitFlow is a branching model for Git, created by Vincent Driessen. It has attracted a lot of attention because it is very well suited to collaboration and scaling the development team. https://datasift.github.io/gitflow/IntroducingGitFlow.html",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Github flow ",
+      "ring" : "ASSESS",
+      "description" : "Used by <i></i>.<br/><br/>GitHub flow is a lightweight, branch-based workflow that supports teams and projects where deployments are made regularly. This guide explains how and why GitHub flow works. https://guides.github.com/introduction/flow/"
+    },
+    {
+      "quadrant" : "Techniques",
+      "name" : "Hexagonal architecture",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>The hexagonal architecture, or ports and adapters architecture, is an architectural pattern used in software design. It aims at creating loosely coupled application components that can be easily connected to their software environment by means of ports and adapters. This makes components exchangeable at any level and facilitates test automation. https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)",
+      "ring" : "ADOPT"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, Sirius, Ozone, 42, Sputnik, Moonsters, Rocket</i>.<br/><br/>",
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Infrastructure-as-Code"
+    },
+    {
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Rocket</i>.<br/><br/>not sure how to describe it, sounds like a regular testing... ",
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Manual testing by developers"
+    },
+    {
+      "description" : "Used by <i>Ozone,Perseus</i>.<br/><br/>Metarepository / Polyrepo is a type of repository(typically git repo) used to manage source code using multiple repository. Polyrepo is also known as many-repo or multi-repo.",
+      "ring" : "TRIAL",
+      "quadrant" : "Techniques",
+      "name" : "Metarepository",
+      "isNew" : false
+    },
+    {
+      "name" : "Microservices Architectures",
+      "quadrant" : "Techniques",
+      "isNew" : false,
+      "description" : "Used by <i>Sirius, Moonsters, Rocket</i>.<br/><br/>Microservice architecture – a variant of the service-oriented architecture (SOA) structural style – arranges an application as a collection of loosely coupled services. In a microservices architecture, services are fine-grained and the protocols are lightweight.  https://microservices.io/ https://martinfowler.com/articles/microservices.html",
+      "ring" : "ADOPT"
+    },
+    {
+      "quadrant" : "Techniques",
+      "name" : "Mob programming",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Mob programming (informally mobbing) is a software development approach where the whole team works on the same thing, at the same time, in the same space, and at the same computer. This is similar to pair programming where two people sit at the same computer and collaborate on the same code at the same time. With mob programming, the collaboration is extended to everyone on the team, while still using a single computer for writing the code and inputting it into the code base. https://www.agilealliance.org/glossary/mob-programming/",
+      "ring" : "ASSESS"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>A modular monolith is a software design approach in which a monolith is designed with an emphasis on interchangeable (and potentially reusable) modules. https://www.jrebel.com/blog/what-is-a-modular-monolith",
+      "ring" : "TRIAL",
+      "quadrant" : "Techniques",
+      "name" : "Modular monoliths",
+      "isNew" : false
+    },
+    {
+      "ring" : "HOLD",
+      "description" : "Used by <i>Orion, 42,Sputnik</i>.<br/><br/>In revision control systems, a monorepo is a software development strategy where code for many projects is stored in the same repository. As of 2017 some forms of this software engineering practice were over a decade old, but the general concept had only recently been named. Many attempts have been made to differentiate between monolithic applications and other, newer forms of monorepos. https://en.wikipedia.org/wiki/Monorepo",
+      "name" : "Monorepositories",
+      "quadrant" : "Techniques",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Multirepos",
+      "quadrant" : "Techniques",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Multi repos is an approach when each and every project located in isolated repositories, and has their own life cycle ",
+      "ring" : "ADOPT"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Objectives and key results (OKR) is a goal-setting framework for defining and tracking objectives and their outcomes. https://en.wikipedia.org/wiki/OKR https://www.whatmatters.com/resources/google-okr-playbook/",
+      "name" : "OKRs",
+      "quadrant" : "Techniques",
+      "isNew" : false
+    },
+    {
+      "name" : "Pair programming",
+      "quadrant" : "Techniques",
+      "isNew" : false,
+      "description" : "Used by <i>Rocket, Sputnik</i>.<br/><br/>Pair programming is an agile software development technique in which two programmers work together at one workstation. One, the driver, writes code while the other, the observer or navigator, reviews each line of code as it is typed in. The two programmers switch roles frequently. https://www.agilealliance.org/glossary/pairing/",
+      "ring" : "TRIAL"
+    },
+    {
+      "name" : "Pipelines as code",
+      "quadrant" : "Techniques",
+      "isNew" : false,
+      "description" : "Used by <i>Sirius, Sputnik</i>.<br/><br/>The pipelines as code technique emphasizes that the configuration of delivery pipelines that build, test and deploy our applications or infrastructure should be treated as code; they should be placed under source control and modularized in reusable components with automated testing and deployment. https://www.gocd.org/2017/05/02/what-does-pipelines-as-code-really-mean/",
+      "ring" : "ADOPT"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Progress, plans, problems (PPP) is a management technique for recurring (daily, weekly or monthly) status reporting. A person reports 3-5 achievements, goals and challenges from the reporting period. http://www.clevegibbon.com/2013/01/planning-productivity-and-progress-the-power-of-p/",
+      "isNew" : false,
+      "name" : "Plans-Progress-Problems (PPPs)",
+      "quadrant" : "Techniques"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik, 42, Moonsters</i>.<br/><br/>Scrum is an agile framework for developing, delivering, and sustaining complex products, with an initial emphasis on software development, although it has been used in other fields including research, sales, marketing and advanced technologies. https://en.wikipedia.org/wiki/Scrum_(software_development)",
+      "isNew" : false,
+      "name" : "Scrum",
+      "quadrant" : "Techniques"
+    },
+    {
+      "description" : "Used by <i>42</i>.<br/><br/>A service mesh is a configurable, low‑latency infrastructure layer designed to handle a high volume of network‑based interprocess communication among application infrastructure services using application programming interfaces (APIs). A service mesh ensures that communication among containerized and often ephemeral application infrastructure services is fast, reliable, and secure. The mesh provides critical capabilities including service discovery, load balancing, encryption, observability, traceability, authentication and authorization, and support for the circuit breaker pattern. https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh  https://www.nginx.com/blog/what-is-a-service-mesh/",
+      "ring" : "TRIAL",
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Service mesh"
+    },
+    {
+      "description" : "Used by <i>Sputnik, Sirius</i>.<br/><br/>Specification-first design means that before you start changing the implementation of your API, you first design it using some standard that is human and machine readable.  https://bitbucket.org/evbox/everon/src/master/architecture/docs/adrs/ADR-0006-openapi-schema-generation.md https://www.davidkaya.com/specification-first-design/",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Specification-first approach"
+    },
+    {
+      "quadrant" : "Techniques",
+      "name" : "SRE",
+      "isNew" : false,
+      "description" : "Used by <i>42</i>.<br/><br/>Site Reliability Engineering (SRE) is a discipline that incorporates aspects of software engineering and applies them to infrastructure and operations problems. The main goals are to create scalable and highly reliable software systems. https://en.wikipedia.org/wiki/Site_Reliability_Engineering",
+      "ring" : "ADOPT"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Story mapping consists of ordering user stories along two independent dimensions. The “map” arranges user activities along the horizontal axis in rough order of priority (or “the order in which you would describe activities to explain the behaviour of the system”). Down the vertical axis, it represents increasing sophistication of the implementation. https://www.agilealliance.org/glossary/storymap/",
+      "name" : "Story mapping",
+      "quadrant" : "Techniques",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Techniques",
+      "name" : "Target architecture",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>The Target Architecture provides the details of a future state of an architecture being developed for an organization. Depending on the circumstances, it may be appropriate to develop several different future States, representing different time points, that provide a roadmap to show the evolution of the architecture to a target state."
+    },
+    {
+      "name" : "TDD",
+      "quadrant" : "Techniques",
+      "isNew" : false,
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Rocket</i>.<br/><br/>Test-driven development (TDD) is a software development process that relies on the repetition of a very short development cycle: requirements are turned into very specific test cases, then the code is improved so that the tests pass. This is opposed to software development that allows code to be added that is not proven to meet requirements. https://en.wikipedia.org/wiki/Test-driven_development"
+    },
+    {
+      "name" : "Bitbucket",
+      "quadrant" : "Tools",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik, Tenant Portal, Schumis</i>.<br/><br/>Bitbucket is a web-based version control repository hosting service owned by Atlassian, for source code and development projects that use either Mercurial or Git revision control systems. (read more: https://www.atlassian.com/software/bitbucket/enterprise/data-center, https://en.wikipedia.org/wiki/Bitbucket)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>42, Sputnik, Moonsters, Schumis, Sirius, Perseus, Rocket</i>.<br/><br/>CircleCI is a modern continuous integration and continuous delivery (CI/CD) platform which automates build, test, and deployment of software. (read more: https://circleci.com/docs/enterprise/overview/)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "CircleCI"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>CircleCI orbs are open-source, shareable packages of parameterizable reusable configuration elements, including jobs, commands, and executors which are used to reduce configuration complexity and help you integrate with your software and services stack quickly and easily across many projects. (read more: https://circleci.com/docs/2.0/orb-intro/)",
+      "name" : "CircleCI Orbs",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Cloud Profiler",
+      "quadrant" : "Tools",
+      "description" : "Used by <i>Orion</i>.<br/><br/>Cloud Profiler is a statistical, low-overhead profiler that continuously gathers CPU usage and memory-allocation information from your production applications and attributes that information to the application's source code, helping you identify the parts of the application consuming the most resources, and otherwise illuminating the performance characteristics of the code. (read more: https://cloud.google.com/profiler/docs)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>42</i>.<br/><br/>Cloudflare secures and ensures the reliability of your external-facing resources such as websites, APIs, and applications. It protects your internal resources such as behind-the-firewall applications, teams, and devices. And it is your platform for developing globally scalable applications. (for more info: https://www.cloudflare.com/en-gb/)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Cloudflare",
+      "quadrant" : "Tools"
+    },
+    {
+      "quadrant" : "Tools",
+      "name" : "Confluence",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Schumis, 42, Moonsters</i>.<br/><br/>Confluence is a collaboration wiki tool used to help teams to collaborate and share knowledge efficiently. With confluence, we can capture project requirements, assign tasks to specific users, and manage several calendars at once with the help of Team Calendars add-on. (read more: https://www.atlassian.com/software/confluence/guides/get-started/confluence-overview#about-confluence)"
+    },
+    {
+      "quadrant" : "Tools",
+      "name" : "Docker",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik, 42, Moonsters</i>.<br/><br/>Docker is a set of platform as a service products that use OS-level virtualization to deliver software in packages called containers. (check https://docs.docker.com/get-started/overview/)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Fstlane is an open source platform aimed at simplifying Android and iOS deployment which makes it possible to automate every aspect of the development and release workflow. (read more: https://docs.fastlane.tools/)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Fastlane",
+      "quadrant" : "Tools"
+    },
+    {
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Firebase is a mobile-backend-as-a-service developed by Google that provides powerful features for building mobile apps. (more details: https://firebase.google.com/docs)",
+      "name" : "Firebase",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "name" : "GIT",
+      "quadrant" : "Tools",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Schumis, Sputnik, 42, Tenant Portal</i>.<br/><br/>Git is a distributed version-control system for tracking changes in source code during software development. (read more: https://git-scm.com/doc)"
+    },
+    {
+      "description" : "Used by <i>Perseus</i>.<br/><br/>GitLab CI/CD is a tool built into GitLab for software development through the continuous methodologies: Continuous Integration (CI), Continuous Delivery (CD), Continuous Deployment (CD). (read more: https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/)",
+      "ring" : "TRIAL",
+      "isNew" : false,
+      "name" : "GitLab CI",
+      "quadrant" : "Tools"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Schumis</i>.<br/><br/>GitLab is a web-based DevOps lifecycle tool that provides a Git-repository manager providing wiki, issue-tracking and continuous integration and deployment pipeline features.",
+      "name" : "Gitlab?",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>42</i>.<br/><br/>Google Docs is a word processor included as part of a free, web-based software office suite offered by Google within its Google Drive service. (https://docs.google.com/)",
+      "name" : "Google Docs",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>42</i>.<br/><br/>Google Meet is a video-communication service developed by Google.",
+      "isNew" : false,
+      "name" : "Google Meet",
+      "quadrant" : "Tools"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "Gradle",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Orion, Sirius, Hubble, 42, Sputnik, Moonsters, Rocket, Perseus</i>.<br/><br/>Gradle is a build automation tool based on Groovy and Kotlin. It's open source and flexible enough to build almost any type of software and it also supports both the automatic download of dependencies and many repositories, including Maven and Ivy. (read more: https://docs.gradle.org/current/userguide/userguide.html)"
+    },
+    {
+      "description" : "Used by <i>42</i>.<br/><br/>Vault is a tool for securely accessing secrets, having as main features the following: secure secret storage, dynamic secrets, data encryption, leasing and renewal and secret revocation. (read more: https://www.vaultproject.io/docs/what-is-vault)",
+      "ring" : "ASSESS",
+      "isNew" : false,
+      "name" : "Hashicorp Vault",
+      "quadrant" : "Tools"
+    },
+    {
+      "isNew" : false,
+      "name" : "Helm",
+      "quadrant" : "Tools",
+      "ring" : "ADOPT",
+      "description" : "Used by <i>42, Sputnik</i>.<br/><br/>Helm is the package manager for Kubernetes. (read more: https://helm.sh/docs/)"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>IntelliJ IDEA is an integrated development environment (IDE) written in Java for developing computer software. (read more: https://www.jetbrains.com/help/idea/discover-intellij-idea.html)",
+      "quadrant" : "Tools",
+      "name" : "Intellij",
+      "isNew" : false
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sirius</i>.<br/><br/>InVision is a cloud-based digital product design platform that helps development professionals and businesses of all sizes create and manage prototypes. (read more: https://www.invisionapp.com/about)",
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "Invisionapp"
+    },
+    {
+      "quadrant" : "Tools",
+      "name" : "Jacoco",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>JaCoCo provides the standard technology for code coverage analysis in Java VM based environments. The focus is providing a lightweight, flexible and well documented library for integration with various build and development tools. (read more: https://www.jacoco.org/jacoco/trunk/doc/index.html)",
+      "ring" : "ADOPT"
+    },
+    {
+      "name" : "JIRA",
+      "quadrant" : "Tools",
+      "isNew" : false,
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Schumis, 42, Tenant Portal, Moonsters</i>.<br/><br/>JIRA is a tool developed by Australian Company Atlassian. This software is used for bug tracking, issue tracking, and project management. (https://www.atlassian.com/software/jira)"
+    },
+    {
+      "ring" : "TRIAL",
+      "description" : "Used by <i>Perseus</i>.<br/><br/>Jib builds optimized Docker and OCI images for your Java applications without a Docker daemon - and without deep mastery of Docker best-practices. It is available as plugins for Maven and Gradle and as a Java library.",
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "jlib"
+    },
+    {
+      "description" : "Used by <i>Sirius</i>.<br/><br/>Apache JMeter is an Apache project that can be used as a load testing tool for analyzing and measuring the performance of a variety of services, with a focus on web applications. (read more: https://jmeter.apache.org/)",
+      "ring" : "ASSESS",
+      "quadrant" : "Tools",
+      "name" : "JMeter",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Lilt",
+      "quadrant" : "Tools",
+      "description" : "Used by <i>Schumis</i>.<br/><br/>Lilt is an enterprise language translation company that builds AI-powered software and sells translation services to companies around the world. (https://lilt.com/)",
+      "ring" : "ADOPT"
+    },
+    {
+      "quadrant" : "Tools",
+      "name" : "Liquibase",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik, Rocket, Perseus, Moonsters</i>.<br/><br/>Liquibase is an open-source database-independent library for tracking, managing and applying database schema changes. (read more: https://www.liquibase.org/get-started/core-usage)",
+      "ring" : "ADOPT"
+    },
+    {
+      "name" : "Lucidchart",
+      "quadrant" : "Tools",
+      "isNew" : false,
+      "description" : "Used by <i>Rocket,Sirius</i>.<br/><br/>Lucidchart is a web-based proprietary platform that allows users to collaborate on drawing, revising and sharing charts and diagrams. (https://www.lucidchart.com/pages/product)",
+      "ring" : "ADOPT"
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "Miro",
+      "description" : "Used by <i>Rocket,Sirius</i>.<br/><br/>Miro is a collaborative online whiteboard platform designed for remote and distributed teams. (https://miro.com/)",
+      "ring" : "ADOPT"
+    },
+    {
+      "quadrant" : "Tools",
+      "name" : "Mural",
+      "isNew" : false,
+      "description" : "Used by <i>Sirius</i>.<br/><br/>MURAL is a virtual tool that enables teams to collaborate visually and brainstorm solutions to their problems or challenges. (https://www.mural.co/)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Tenant Portal</i>.<br/><br/>npm is the package manager for the Node JavaScript platform. (read more: https://docs.npmjs.com/cli/npm)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "NPM"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Swagger Codegen is an open source project which allows generation of API client libraries (SDK generation), server stubs, and documentation automatically from an OpenAPI Specification. (https://swagger.io/tools/swagger-codegen/) ",
+      "ring" : "HOLD",
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "Swagger Codegen"
+    },
+    {
+      "description" : "Used by <i>Orion, Sirius, Hubble, Sputnik, Moonsters, Rocket, Ozone</i>.<br/><br/>OpenAPI Generator is a tool designed to create API client libraries, server stubs, configurations, and documentation from OpenAPI 2.0 and 3. x documents. ",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "OpenAPI Generator",
+      "quadrant" : "Tools"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Everon</i>.<br/><br/>Opsgenie is a modern incident management platform for operating always-on services that enables dev and ops teams to stay aware and in control of alerts and incidents. (read more: https://www.atlassian.com/software/opsgenie)",
+      "name" : "Opsgenie",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Sputnik, Moonsters</i>.<br/><br/>Pact is a code-first tool for testing HTTP and message integrations using contract tests. (read more: https://docs.pact.io/)",
+      "ring" : "TRIAL",
+      "quadrant" : "Tools",
+      "name" : "Pact",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Sirius, Sputnik, Rocket</i>.<br/><br/>PlantUML is an open-source tool allowing users to create UML diagrams from a plain text language. The language of PlantUML is an example of a Domain-specific language. (read more: https://plantuml.com/, http://plantuml.com/guide)",
+      "ring" : "ADOPT",
+      "name" : "PlantUML",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "name" : "Postman",
+      "quadrant" : "Tools",
+      "description" : "Used by <i>Sirius</i>.<br/><br/>Postman is a popular API client that makes it easy for developers to create, share, test and document APIs. This is done by allowing users to create and save simple and complex HTTP/s requests, as well as read their responses. (read more: https://learning.postman.com/docs/getting-started/introduction/)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Prometheus is a free software application used for event monitoring and alerting. It records real-time metrics in a time series database built using a HTTP pull model, with flexible queries and real-time alerting. (read more: https://prometheus.io/docs/introduction/overview/)",
+      "ring" : "ADOPT",
+      "name" : "Prometheus",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "name" : "Slack",
+      "quadrant" : "Tools",
+      "isNew" : false,
+      "description" : "Used by <i>Sputnik, 42</i>.<br/><br/>Slack is a business communication platform developed by American software company Slack Technologies which offers many IRC-style features, including persistent chat rooms organized by topic, private groups, and direct messaging.",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>SNYK is an open source security platform for finding out vulnerabilities in source code of an application. (read more: https://support.snyk.io/hc/en-us/articles/360011378558-Introduction-to-Snyk)",
+      "ring" : "ADOPT",
+      "quadrant" : "Tools",
+      "name" : "Snyk",
+      "isNew" : false
+    },
+    {
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "Sonar",
+      "description" : "Used by <i>Moonsters, Sputnik, Perseus, etc</i>.<br/><br/>Sonar is an open-source platform developed by SonarSource for continuous inspection of code quality to perform automatic reviews with static analysis of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages. (read more: https://docs.sonarqube.org/latest/)",
+      "ring" : "ADOPT"
+    },
+    {
+      "description" : "Used by <i>Tenant Portal</i>.<br/><br/>Storybook is an open source tool for developing UI components in isolation for React, Vue, Angular, and more. (read more: https://storybook.js.org/docs/react/get-started/introduction)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Storybook",
+      "quadrant" : "Tools"
+    },
+    {
+      "description" : "Used by <i>Orion, Sirius, Hubble, 42, Sputnik, Moonsters, Rocket</i>.<br/><br/>Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions. Configuration files describe to Terraform the components needed to run a single application or your entire datacenter. (read more: https://www.terraform.io/intro/index.html)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Terraform",
+      "quadrant" : "Tools"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>Sputnik</i>.<br/><br/>Testcontainers is a Java library that supports JUnit tests, providing lightweight, throwaway instances of common databases, Selenium web browsers, or anything else that can run in a Docker container. (read more: https://www.testcontainers.org/)",
+      "name" : "Testcontainers",
+      "quadrant" : "Tools",
+      "isNew" : false
+    },
+    {
+      "description" : "Used by <i>Black Hole</i>.<br/><br/>Webpack is a static module bundler for modern JavaScript applications which provides developers with control over how it splits the modules, allowing them to adjust builds to particular situations and workaround solutions that don't function properly out of the box. (read more: https://webpack.js.org/concepts/)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "Webpack",
+      "quadrant" : "Tools"
+    },
+    {
+      "ring" : "ADOPT",
+      "description" : "Used by <i>42</i>.<br/><br/>Zoom is a collaboration tool which provides videotelephony and online chat services through a cloud-based peer-to-peer software platform and is used for teleconferencing, telecommuting, distance education, and social relations. (read more: https://en.wikipedia.org/wiki/Zoom_(software) )",
+      "isNew" : false,
+      "quadrant" : "Tools",
+      "name" : "Zoom"
+    },
+    {
+      "description" : "Used by <i>Everon</i>.<br/><br/>JFrog Artifactory is a tool designed to store the binary output of the build process for use in distribution and deployment. (read more: https://www.jfrog.com/confluence/display/JFROG/JFrog+Artifactory)",
+      "ring" : "ADOPT",
+      "isNew" : false,
+      "name" : "JFrog Artifactory",
+      "quadrant" : "Tools"
     }
   ]
 }

@@ -287,7 +287,7 @@ const Radar = function (size, radar) {
 
     var clickBlip = function () {
       d3.select('.blip-item-description.expanded').node() !== blipItemDescription.node() &&
-        d3.select('.blip-item-description.expanded').classed('expanded', false)
+      d3.select('.blip-item-description.expanded').classed('expanded', false)
       blipItemDescription.classed('expanded', !blipItemDescription.classed('expanded'))
 
       blipItemDescription.on('click', function () {
@@ -411,7 +411,7 @@ const Radar = function (size, radar) {
     selectQuadrant.bind({}, quadrant.order, quadrant.startAngle)()
     const selectedDesc = d3.select('#blip-description-' + blip.number())
     d3.select('.blip-item-description.expanded').node() !== selectedDesc.node() &&
-        d3.select('.blip-item-description.expanded').classed('expanded', false)
+    d3.select('.blip-item-description.expanded').classed('expanded', false)
     selectedDesc.classed('expanded', true)
 
     d3.selectAll('g.blip-link').attr('opacity', 0.3)
@@ -501,7 +501,7 @@ const Radar = function (size, radar) {
     d3.selectAll('.quadrant-table.' + order).classed('selected', true)
     d3.selectAll('.blip-item-description').classed('expanded', false)
 
-    var scale = 2
+    var scale = 1.5
 
     var adjustX = Math.sin(toRadian(startAngle)) - Math.cos(toRadian(startAngle))
     var adjustY = Math.cos(toRadian(startAngle)) + Math.sin(toRadian(startAngle))
@@ -601,7 +601,7 @@ const Radar = function (size, radar) {
 
     plotQuadrantButtons(quadrants, header)
 
-    radarElement.style('height', size + 14 + 'px')
+    // radarElement.style('height', size + 14 + 'px')
     svg = radarElement.append('svg').call(tip)
     svg.attr('id', 'radar-plot').attr('width', size).attr('height', size + 14)
 
